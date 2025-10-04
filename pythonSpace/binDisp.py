@@ -29,6 +29,7 @@ class binaryDisplay:
 
 
 
+        #resets bits stored in object
     def reset(self):
             self.bits = [False, False, False, False]
             self.display(self.bits)
@@ -39,7 +40,7 @@ class binaryDisplay:
 
 
 
-    #feed bits in as bit string
+    #feed bits stored in object in as serial bits and prints the bit string
     def display(self,dispState):
     #        print('--------')
             for b in range(len(dispState)):
@@ -56,7 +57,7 @@ class binaryDisplay:
 
 
 
-    #convert number into bit string
+    #convert number into bit string stored in object
     def bitConvert(self,num):
 
     #        bits = [False, False, False, False]

@@ -1,10 +1,20 @@
-from me import faceSuperClass
+from OLD.me import faceSuperClass
 
 import subprocess
 
 class numberPadNumbers:
 
     def __init__(self):
+
+        
+        self.shell = subprocess.Popen(
+            ["bash"], 
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+
 
         self.faceIndex = None
 
@@ -26,39 +36,43 @@ class numberPadNumbers:
 		#None
         self.number += num
 
+        self.blinkNoti(0.1)
 
     
 
     def call(self):
 		#None
+
+        print(self.number)
 		
         if (self.number == ""):
-            shell.stdin.write('sudo mmcli -m 0 --command="ATA"\n')
-            shell.stdin.flush()
+            self.shell.stdin.write('sudo mmcli -m 0 --command="ATA"\n')
+            self.shell.stdin.flush()
 
-        for i in range(len(secretCodes)):
+            self.downRec()
+        
+        elif (self.number > 2):
+            return(self.number)
 
-            if(self.number == secretCodes[i]):
-				#None
-				#music mode is 1, the rest is yet to be decided
-                global mode
-                self.shortFlash()
-                mode = i
-				
-                return
-		
-        print(self.number)
-        shell.stdin.write('sudo mmcli -m 0 --command="ATD+1' + self.number + ';"\n')
-        shell.stdin.flush()
+        else:
+        
+            self.shell.stdin.write('sudo mmcli -m 0 --command="ATD+1' + self.number + ';"\n')
+            self.shell.stdin.flush()
+
+            self.upSend()
+            self.upSend()
 
 
     
     def clear(self):
 
         if(self.number == ""):
-            shell.stdin.write('sudo mmcli -m 0 --command="AT+CHUP"\n')
-            shell.stdin.flush()
+            self.shell.stdin.write('sudo mmcli -m 0 --command="AT+CHUP"\n')
+            self.shell.stdin.flush()
 
 
 		#None  
         self.number = ""
+
+        self.blinkNoti(0.1)
+        self.blinkNoti(0.1)
