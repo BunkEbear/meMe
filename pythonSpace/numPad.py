@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from OLD.me import inputSuperclass
+from me import inputSuperclass
 
 import RPi.GPIO as GPIO
 from time import sleep

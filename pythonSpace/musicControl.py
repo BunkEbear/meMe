@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from OLD.me import numPadFace
+from me import numPadFace
 
 import pygame
 import random

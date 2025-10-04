@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from OLD.me import faceSuperClass
+from me import faceSuperClass
 
 import subprocess
 
