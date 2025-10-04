@@ -10,9 +10,9 @@ echo 'meStarted(martyd)'
 
 #/home/bunkebear/me/callChecker.sh &
 
-ls /home/bunkebear/meMe/pythonSpace/ | echo
+#ls /home/bunkebear/meMe/pythonSpace/ | echo
 
-sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
+#sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
 
 sudo /home/bunkebear/meMe/pythonSpace/me.py

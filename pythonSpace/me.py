@@ -6,15 +6,6 @@ from time import sleep
 import subprocess
 
 
-NUMIN = numberPad.numberPadNumbers
-
-TEXTIN = texting.messaging
-
-MC = musicControl.controlMusic
-
-#jitPull = gitDown.gitPull
-
-
 
 
 
@@ -71,6 +62,23 @@ import numberPad
 import texting
 import musicControl
 import gitDown
+
+
+
+
+
+
+NUMIN = numberPad.numberPadNumbers
+
+TEXTIN = texting.messaging
+
+MC = musicControl.controlMusic
+
+#jitPull = gitDown.gitPull
+
+
+
+
 
 
 
