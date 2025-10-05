@@ -94,4 +94,6 @@ class binaryDisplay:
 
 
     def displayNumber(self,number):
-            self.display(self.bitConvert(number))
+            self.bitConvert(number)
+            self.display()
+            
