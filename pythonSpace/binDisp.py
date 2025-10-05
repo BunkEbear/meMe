@@ -94,6 +94,7 @@ class binaryDisplay:
 
 
     def displayNumber(self,number):
+            print('CLONK')
             self.bitConvert(number)
             self.display(self.bits)
             
