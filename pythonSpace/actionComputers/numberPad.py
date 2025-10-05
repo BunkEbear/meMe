@@ -12,6 +12,8 @@ class numberPadNumbers(numPadFace):
 		#None
         print (num)
 
+        print("PISSSSSSS")
+
         self.number += num
 
         self.blinkNoti(0.1)
