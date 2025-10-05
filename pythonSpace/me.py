@@ -58,10 +58,10 @@ setUp()
 
 import inputs.numPad as numPad
 
-import pythonSpace.actionComputers.numberPad as numberPad
-import pythonSpace.actionComputers.texting as texting
-import pythonSpace.actionComputers.musicControl as musicControl
-import pythonSpace.actionComputers.gitDown as gitDown
+import actionComputers.numberPad as numberPad
+import actionComputers.texting as texting
+import actionComputers.musicControl as musicControl
+import actionComputers.gitDown as gitDown
 
 
 

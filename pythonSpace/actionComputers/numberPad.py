@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import actionComputerSC
+import actionComputers.actionComputerSC
 
 import subprocess
 
