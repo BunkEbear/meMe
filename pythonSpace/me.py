@@ -69,7 +69,7 @@ import actionComputers.numberPad as numberPad
 
 
 
-
+#starts face for processing numbers as a numberpad
 NUMIN = numberPad.numberPadNumbers(DISPLAY)
 
 #TEXTIN = texting.messaging(DISPLAY)
@@ -80,12 +80,14 @@ NUMIN = numberPad.numberPadNumbers(DISPLAY)
 
 
 
+NUMPAD = numPad.numPadIn()
 
 
 
+#
 
 
-inputDevs = [numPad.numPadIn]
+inputDevs = [NUMPAD]
 
 for i in range(len(inputDevs)):
     inputDevs[i].setIndex(i)
