@@ -102,6 +102,5 @@ class binaryDisplay:
             print('CLONK' + str(number))
             self.reset()
             self.bitConvert(number)
-
             self.display()
             
