@@ -67,13 +67,11 @@ class numPadIn(inputSuperclass):
                     #print("column: " + str(i) + "    row: " + str(n))
 
                     if ((self.btnPress == [i,n])):
-                        #print("WOMP")
-                        #only return it the first time its pressed
+
                         None
-                        #self.btnPress = [i,n]
-                        #print(str(n) + str(i))
-                        self.btnPress = None
-                        return self.btnPress
+
+                        #self.btnPress = None
+                        return None
                     else:
                         self.btnPress = [i,n]
                         print("balls")
