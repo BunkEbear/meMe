@@ -55,6 +55,7 @@ class numPadIn(inputSuperclass):
 
 
             #listen from each column
+            sleep(0.0005)
             for i in range(len(self.columns)):
 
                 #if the column hears the row then we know
@@ -85,7 +86,6 @@ class numPadIn(inputSuperclass):
             GPIO.output(self.rows[n], GPIO.LOW)
 
 
-        self.btnPress = None
         return None
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
