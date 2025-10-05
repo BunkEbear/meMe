@@ -6,8 +6,10 @@ import subprocess
 
 class numberPadNumbers(numPadFace):
 
-    def __init__(self):
+    def __init__(self, displayObject):
 
+
+        self.display = displayObject
         
         self.shell = subprocess.Popen(
             ["bash"], 
