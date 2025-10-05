@@ -66,17 +66,21 @@ class numPadIn(inputSuperclass):
                     
                     #print("column: " + str(i) + "    row: " + str(n))
 
-                    if ((self.btnPress[1] == n)):
+                    try:
 
-                        None
+                        if ((self.btnPress[1] == n)):
 
-                        #self.btnPress = None
-                        return None
-                    else:
-                        self.btnPress = [i,n]
-                        print("balls")
-                        return self.btnPress
 
+                            #self.btnPress = None
+                            return None
+                        
+                        else:
+                            self.btnPress = [i,n]
+                            print("balls")
+                            return self.btnPress
+
+                    except Exception as e:
+                        print(f"An error occurred: {e}")
                     
 
 
