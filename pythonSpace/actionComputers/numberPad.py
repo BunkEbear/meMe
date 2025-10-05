@@ -17,8 +17,8 @@ class numberPadNumbers(numPadFace):
         self.number += num
 
         print(self.number)
-
-        self.blinkNoti(0.1)
+        self.binDispCommand(num)
+        #self.blinkNoti(0.1)
 
     
 
