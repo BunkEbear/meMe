@@ -38,6 +38,8 @@ class numberPadNumbers(numPadFace):
 
     def addNum(self,num):
 		#None
+        print (num)
+
         self.number += num
 
         self.blinkNoti(0.1)
