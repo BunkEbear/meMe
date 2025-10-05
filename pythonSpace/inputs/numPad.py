@@ -69,9 +69,10 @@ class numPadIn(inputSuperclass):
                         #print("WOMP")
                         #only return it the first time its pressed
                         None
-                        self.btnPress = [i,n]
+                        #self.btnPress = [i,n]
                         #print(str(n) + str(i))
-                        return None
+                        self.btnPress = None
+                        return self.btnPress
                     else:
                         self.btnPress = [i,n]
                         print("balls")
@@ -83,6 +84,8 @@ class numPadIn(inputSuperclass):
 
             GPIO.output(self.rows[n], GPIO.LOW)
 
+
+        self.btnPress = None
         return None
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
