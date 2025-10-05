@@ -60,6 +60,7 @@ class binaryDisplay:
 
     #convert number into bit string stored in object
     def bitConvert(self,num):
+            print('ERRRR')
 
     #        bits = [False, False, False, False]
 
