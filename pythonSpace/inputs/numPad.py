@@ -81,6 +81,10 @@ class numPadIn(inputSuperclass):
 
                     except Exception as e:
                         print(f"An error occurred: {e}")
+                        self.btnPress = [i,n]
+                        print("balls^2")
+                        return self.btnPress
+
                     
 
 
