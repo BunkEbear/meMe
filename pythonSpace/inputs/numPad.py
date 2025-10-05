@@ -66,7 +66,7 @@ class numPadIn(inputSuperclass):
                     
                     #print("column: " + str(i) + "    row: " + str(n))
 
-                    if ((self.btnPress == [i,n])):
+                    if ((self.btnPress[1] == n)):
 
                         None
 
