@@ -122,7 +122,7 @@ while True:
 
     else:
     #here you are fucker, time to die
-        currFace = faces[currFace].numPadCommand()
+        currFace = faces[currFace].numPadCommand(inputComms[0])
 
         #print comms from the numpad in
         print(inputComms[0])
