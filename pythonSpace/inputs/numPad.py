@@ -60,20 +60,19 @@ class numPadIn(inputSuperclass):
                 #if the column hears the row then we know
                 if(GPIO.input(self.columns[i]) == 1):
 
-                    print("womp")
+                    #print("womp")
                     
                     
                     #print("column: " + str(i) + "    row: " + str(n))
 
                     if ((self.btnPress == [i,n])):
-                        print("WOMP")
+                        #print("WOMP")
                         #only return it the first time its pressed
                         None
                         self.btnPress = [i,n]
                         #print(str(n) + str(i))
                         return None
                     else:
-                        
                         self.btnPress = [i,n]
                         print("balls")
                         return self.btnPress
