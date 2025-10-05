@@ -83,8 +83,8 @@ class numPadIn(inputSuperclass):
 
             GPIO.output(self.rows[n], GPIO.LOW)
 
-
-        return None
+        self.btnPress = None
+        return self.btnPress
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
         #if no button pressed returns [None,None]
