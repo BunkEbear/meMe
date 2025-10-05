@@ -32,7 +32,7 @@ class binaryDisplay:
         #resets bits stored in object
     def reset(self):
             self.bits = [False, False, False, False]
-            self.display(self.bits)
+            self.display()
             print('resetBits')
 
 
@@ -41,12 +41,12 @@ class binaryDisplay:
 
 
     #feed bits stored in object in as serial bits and prints the bit string
-    def display(self,dispState):
+    def display(self):
             print('clink')
-            print(dispState)
+            print(self.bits)
     #        print('--------')
-            for b in range(len(dispState)):
-                    if dispState[b]:
+            for b in range(len(self.bits)):
+                    if self.bits[b]:
                             print('1')
                             GPIO.output(self.binLEDs[b],GPIO.HIGH)
                     else:
@@ -99,5 +99,6 @@ class binaryDisplay:
     def displayNumber(self,number):
             print('CLONK' + str(number))
             self.bitConvert(number)
-            self.display(self.bits)
+
+            self.display()
             
