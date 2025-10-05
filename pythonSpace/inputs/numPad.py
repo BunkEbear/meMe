@@ -65,24 +65,24 @@ class numPadIn(inputSuperclass):
                     
                     #print("column: " + str(i) + "    row: " + str(n))
 
-                    if (not (self.btnPress == [i,n])):
+                    if ((self.btnPress == [i,n])):
                         print("WOMP")
                         #only return it the first time its pressed
                         None
                         self.btnPress = [i,n]
-                        print(str(n) + str(i))
-                        #return self.btnPress
-                        return [None, None]
-                    
+                        #print(str(n) + str(i))
+                        return None
                     else:
-                        return [None, None]
+                        
+                        self.btnPress = [i,n]
+                        return self.btnPress   
                     
 
 
 
             GPIO.output(self.rows[n], GPIO.LOW)
 
-        return self.btnPress
+        return None
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
         #if no button pressed returns [None,None]

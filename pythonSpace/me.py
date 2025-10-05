@@ -117,23 +117,14 @@ while True:
         #get the report at the ask
         inputComms.append(inputDevs[i].report())
 
-    if inputComms[0] == [None,None]:
-        continue
-
-    else:
-    #here you are fucker, time to die
-        
+    if inputComms[0]:
         switchFace = faces[currFace].numPadCommand(inputComms[0])
 
 
         if switchFace in faces:
             currFace = switchFace
 
-
-        #print comms from the numpad in
-        #print(inputComms[0])
-
-
+    #here you are fucker, time to die
 
     
 
