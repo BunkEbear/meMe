@@ -33,7 +33,7 @@ class binaryDisplay:
     def reset(self):
             self.bits = [False, False, False, False]
             #self.display()
-            print('resetBits')
+            #print('resetBits')
 
 
 
