@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import actionComputers.actionComputerSC
+from actionComputers.actionComputerSC import numPadFace
 
 import subprocess
 
-class numberPadNumbers(actionComputerSC.numPadFace):
+class numberPadNumbers(numPadFace):
 
     def __init__(self):
 
