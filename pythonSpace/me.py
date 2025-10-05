@@ -111,6 +111,7 @@ currFace = 0
 while True:
 
     inputComms = []
+    #defined by length of inputDevs
 
     for i in range(len(inputDevs)):
         #get the report at the ask
