@@ -7,24 +7,7 @@ import RPi.GPIO as GPIO
 
 class binaryDisplay:
 
-    def __init__(self):
 
-        self.binLED0 = 22
-        self.binLED1 = 18
-        self.binLED2 = 16
-        self.binLED3 = 12
-
-        GPIO.setmode(GPIO.BOARD)
-
-        #named on irl index
-        self.binLEDs = [self.binLED0,self.binLED1,self.binLED2,self.binLED3]
-
-        for bit in self.binLEDs:
-                GPIO.setup(bit, GPIO.OUT)
-
-
-        #here to manually manipulate bits ig
-        self.bits = [False, False, False, False]
 
 
 
@@ -104,3 +87,26 @@ class binaryDisplay:
             self.bitConvert(number)
             self.display()
             
+
+
+
+    def __init__(self):
+
+        self.binLED0 = 22
+        self.binLED1 = 18
+        self.binLED2 = 16
+        self.binLED3 = 12
+
+        GPIO.setmode(GPIO.BOARD)
+
+        #named on irl index
+        self.binLEDs = [self.binLED0,self.binLED1,self.binLED2,self.binLED3]
+
+        for bit in self.binLEDs:
+                GPIO.setup(bit, GPIO.OUT)
+
+
+        #here to manually manipulate bits ig
+        self.bits = [False, False, False, False]
+
+        self.display()
