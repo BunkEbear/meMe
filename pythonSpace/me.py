@@ -131,7 +131,7 @@ while True:
 
 
         #print comms from the numpad in
-        print(inputComms[0])
+        #print(inputComms[0])
 
 
 

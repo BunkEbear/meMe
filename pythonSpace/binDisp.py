@@ -42,8 +42,8 @@ class binaryDisplay:
 
     #feed bits stored in object in as serial bits and prints the bit string
     def display(self):
-            print('clink')
-            print(self.bits)
+            #print('clink')
+            #print(self.bits)
     #        print('--------')
             for b in range(len(self.bits)):
                     if self.bits[b]:
@@ -61,7 +61,7 @@ class binaryDisplay:
 
     #convert number into bit string stored in object
     def bitConvert(self,num):
-            print('ERRRR' + str(num))
+            #print('ERRRR' + str(num))
 
     #        bits = [False, False, False, False]
 
@@ -99,7 +99,7 @@ class binaryDisplay:
 
 
     def displayNumber(self,number):
-            print('CLONK' + str(number))
+            #print('CLONK' + str(number))
             self.reset()
             self.bitConvert(number)
             self.display()

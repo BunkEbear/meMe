@@ -10,9 +10,9 @@ class numberPadNumbers(numPadFace):
 
     def addNum(self,num):
 		#None
-        print (num)
+        #print (num)
 
-        print("PISSSSSSS")
+        #print("PISSSSSSS")
 
         self.number += num
 
