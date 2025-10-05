@@ -62,7 +62,7 @@ class numPadFace:
 
     def binDispCommand(self,num):
         self.display.displayNumber(num)
-        print('BONK')
+        #print('BONK')
 
     
     def upSend(self,t=0.3):

@@ -47,10 +47,10 @@ class binaryDisplay:
     #        print('--------')
             for b in range(len(self.bits)):
                     if self.bits[b]:
-                            print('1')
+                            #print('1')
                             GPIO.output(self.binLEDs[b],GPIO.HIGH)
                     else:
-                            print('0')
+                            #print('0')
                             GPIO.output(self.binLEDs[b],GPIO.LOW)
 
 
