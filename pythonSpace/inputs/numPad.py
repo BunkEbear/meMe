@@ -71,7 +71,8 @@ class numPadIn(inputSuperclass):
                         None
                         self.btnPress = [i,n]
                         print(str(n) + str(i))
-                        return self.btnPress
+                        #return self.btnPress
+                        return [None, None]
                     
                     else:
                         return [None, None]
