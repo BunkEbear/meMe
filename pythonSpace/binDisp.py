@@ -32,7 +32,7 @@ class binaryDisplay:
         #resets bits stored in object
     def reset(self):
             self.bits = [False, False, False, False]
-            self.display()
+            #self.display()
             print('resetBits')
 
 
