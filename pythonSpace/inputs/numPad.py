@@ -55,7 +55,7 @@ class numPadIn(inputSuperclass):
 
 
             #listen from each column
-            sleep(0.0005)
+            #sleep(0.0005)
             for i in range(len(self.columns)):
 
                 #if the column hears the row then we know
@@ -76,7 +76,7 @@ class numPadIn(inputSuperclass):
                     
                     else:
                         self.btnPress = [i,n]
-                        print("balls")
+                        #print("balls")
                         return self.btnPress
 
                     
