@@ -60,7 +60,7 @@ class binaryDisplay:
 
     #convert number into bit string stored in object
     def bitConvert(self,num):
-            print('ERRRR')
+            print('ERRRR' + str(num))
 
     #        bits = [False, False, False, False]
 
@@ -96,7 +96,7 @@ class binaryDisplay:
 
 
     def displayNumber(self,number):
-            print('CLONK')
+            print('CLONK' + str(number))
             self.bitConvert(number)
             self.display(self.bits)
             
