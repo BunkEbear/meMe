@@ -51,15 +51,11 @@ class numPadIn(inputSuperclass):
         
         for n in range(len(self.rows)):
 
-            self.btnPress = [None,None]
-
             GPIO.output(self.rows[n], GPIO.HIGH)
 
 
             #listen from each column
             for i in range(len(self.columns)):
-
-                self.btnPress[0] = i
 
                 #if the column hears the row then we know
                 if(GPIO.input(self.columns[i]) == 1):
@@ -72,12 +68,12 @@ class numPadIn(inputSuperclass):
                     if ((self.btnPress == [i,n])):
                         #print("WOMP")
                         #only return it the first time its pressed
-                        #None
-                        #self.btnPress = [i,n]
+                        None
+                        self.btnPress = [i,n]
                         #print(str(n) + str(i))
                         return None
                     else:
-                        self.btnPress[1] = n
+                        self.btnPress = [i,n]
                         print("balls")
                         return self.btnPress
 
@@ -87,8 +83,7 @@ class numPadIn(inputSuperclass):
 
             GPIO.output(self.rows[n], GPIO.LOW)
 
-        self.btnPress = None
-        return self.btnPress
+        return None
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
         #if no button pressed returns [None,None]
