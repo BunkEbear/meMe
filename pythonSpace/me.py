@@ -56,132 +56,25 @@ setUp()
 
 
 
-import numPad
+import pythonSpace.inputs.numPad as numPad
 
-import numberPad
-import texting
-import musicControl
-import gitDown
-
-
+import pythonSpace.actionComputers.numberPad as numberPad
+import pythonSpace.actionComputers.texting as texting
+import pythonSpace.actionComputers.musicControl as musicControl
+import pythonSpace.actionComputers.gitDown as gitDown
 
 
 
 
-NUMIN = numberPad.numberPadNumbers
 
-TEXTIN = texting.messaging
 
-MC = musicControl.controlMusic
+NUMIN = numberPad.numberPadNumbers(DISPLAY)
+
+#TEXTIN = texting.messaging(DISPLAY)
+
+#MC = musicControl.controlMusic(DISPLAY)
 
 #jitPull = gitDown.gitPull
-
-
-
-
-
-
-
-
-
-class inputSuperclass:
-
-    def setIndex(self,indexDev):
-        self.devIndex = indexDev
-
-    def __init__(self,):
-        self.devIndex = None
-
-
-    def report(self,):
-        None
-
-
-
-
-
-class numPadFace:
-
-    def undefined(self):
-        print("button not yet defined")
-
-
-    def returnFaceID(self,faceIndex):
-        return faceIndex
-
-    def setIndex(self,indexFace):
-        self.faceIndex = indexFace
-
-
-
-
-    def __init__(self):
-
-        self.faceIndex = None
-    
-        self.duoLingo = [
-            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
-            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
-            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
-            [lambda: self.returnFaceID(0),lambda: self.undefined(),lambda: self.undefined()]
-            ]
-        
-        self.display = DISPLAY
-
-
-
-    def numPadCommand(self,numPcoords):
-        
-        if numPcoords == None:
-            return self.faceIndex
-
-        return(self.duoLingo[numPcoords[1]][numPcoords[0]]())
-    
-
-
-
-
-
-
-
-
-    def binDispCommand(self,num):
-        self.display.displayNumber(num)
-
-    
-    def upSend(self,t=0.3):
-
-        self.binDispCommand(1)
-        sleep(t)
-        self.binDispCommand(2)
-        sleep(t)
-        self.binDispCommand(4)
-        sleep(t)
-        self.binDispCommand(8)
-        sleep(t)
-        self.binDispCommand(0)
-
-    def downRec(self,t = 0.3):
-
-        self.binDispCommand(8)
-        sleep(t)
-        self.binDispCommand(4)
-        sleep(t)
-        self.binDispCommand(2)
-        sleep(t)
-        self.binDispCommand(1)
-        sleep(t)
-        self.binDispCommand(0)
-
-
-
-    #in this case t would serve 
-    def blinkNoti(self,t=0):
-        
-        self.binDispCommand(15)
-        sleep(t)
-        self.binDispCommand(0)
-        
 
 
 
