@@ -33,7 +33,7 @@ class numberPadNumbers(numPadFace):
 
             self.downRec()
         
-        elif (self.number > 2):
+        elif (int(self.number) > 2):
             return(int(self.number))
 
         else:
