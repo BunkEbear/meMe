@@ -10,7 +10,7 @@ import subprocess
 
 
 
-DISPLAY = binDisp.binaryDisplay
+DISPLAY = binDisp.binaryDisplay()
 
 
 def setUp():
