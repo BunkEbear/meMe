@@ -42,6 +42,7 @@ class binaryDisplay:
 
     #feed bits stored in object in as serial bits and prints the bit string
     def display(self,dispState):
+            print('clink')
     #        print('--------')
             for b in range(len(dispState)):
                     if dispState[b]:
