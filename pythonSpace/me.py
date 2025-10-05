@@ -56,7 +56,7 @@ setUp()
 
 
 
-import pythonSpace.inputs.numPad as numPad
+import inputs.numPad as numPad
 
 import pythonSpace.actionComputers.numberPad as numberPad
 import pythonSpace.actionComputers.texting as texting
