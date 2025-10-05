@@ -67,7 +67,7 @@ class binaryDisplay:
 
     #        print(num)
     #store num as a binary representation in bits
-            self.reset()
+            
         
             if (num == 0):
                     return
@@ -100,6 +100,7 @@ class binaryDisplay:
 
     def displayNumber(self,number):
             print('CLONK' + str(number))
+            self.reset()
             self.bitConvert(number)
 
             self.display()
