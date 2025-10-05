@@ -113,8 +113,10 @@ while True:
     inputComms = []
 
     for i in range(len(inputDevs)):
-        inputComms.append(lambda: inputDevs[i].report())
+        #get the report at the ask
+        inputComms.append(inputDevs[i].report())
 
+#here you are fucker, time to die
     currFace = faces[currFace].numPadCommand(inputComms[0])
 
     #print comms from the numpad in
