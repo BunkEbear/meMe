@@ -46,6 +46,7 @@ class numPadIn(inputSuperclass):
 
 
     def report(self):
+        self.btnPress = [None, None]
         
         
         for n in range(len(self.rows)):
