@@ -117,11 +117,15 @@ while True:
         #get the report at the ask
         inputComms.append(inputDevs[i].report())
 
-#here you are fucker, time to die
-    currFace = faces[currFace].numPadCommand(inputComms[0])
+    if inputComms[0] == [None,None]:
+        continue
 
-    #print comms from the numpad in
-    print(inputComms[0])
+    else:
+    #here you are fucker, time to die
+        currFace = faces[currFace].numPadCommand()
+
+        #print comms from the numpad in
+        print(inputComms[0])
 
 
 
