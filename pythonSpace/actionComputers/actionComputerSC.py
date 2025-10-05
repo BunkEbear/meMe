@@ -43,7 +43,12 @@ class numPadFace:
         if numPcoords == None:
             return self.faceIndex
 
-        return(self.duoLingo[numPcoords[1]][numPcoords[0]]())
+        padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
+
+        if padToAction:
+            return(padToAction)
+        else:
+            return self.faceIndex
     
 
 

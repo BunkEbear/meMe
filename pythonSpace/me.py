@@ -59,9 +59,11 @@ setUp()
 import inputs.numPad as numPad
 
 import actionComputers.numberPad as numberPad
-import actionComputers.texting as texting
-import actionComputers.musicControl as musicControl
-import actionComputers.gitDown as gitDown
+
+
+#import actionComputers.texting as texting
+#import actionComputers.musicControl as musicControl
+#import actionComputers.gitDown as gitDown
 
 
 
@@ -90,8 +92,9 @@ for i in range(len(inputDevs)):
 
 
 
-faces = [NUMIN,TEXTIN,MC]
+faces = [NUMIN]
 
+#give the faces their index
 for i in range(len(faces)):
     faces[i].setIndex(i)
 
