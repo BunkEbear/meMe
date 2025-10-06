@@ -42,6 +42,7 @@ class numPadIn(inputSuperclass):
 
 
         self.btnPress = [None, None]
+        self.lastBtn = [None, None]
 
 
 
@@ -68,13 +69,14 @@ class numPadIn(inputSuperclass):
 
                     
 
-                    if ((self.btnPress[1] == n)):
+                    if ((self.btnPress == self.lastBtn)):
 
 
                         #self.btnPress = None
                         return None
                     
                     else:
+                        self.lastBtn = self.btnPress
                         self.btnPress = [i,n]
                         #print("balls")
                         return self.btnPress
@@ -85,7 +87,7 @@ class numPadIn(inputSuperclass):
 
             GPIO.output(self.rows[n], GPIO.LOW)
 
-        self.btnPress = [None,None]
+        self.lastBtn = [None,None]
         return None
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
