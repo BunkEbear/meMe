@@ -41,13 +41,13 @@ class numPadIn(inputSuperclass):
         print(str(len(self.columns))+' columns')
 
 
-        self.btnPress = [None, None]
+        self.btnPress = None
 
 
 
     def report(self):
         #self.btnPress = [None, None]
-        
+        self.btnPress = None
         
         for n in range(len(self.rows)):
 
@@ -61,15 +61,12 @@ class numPadIn(inputSuperclass):
                 #if the column hears the row then we know
                 if(GPIO.input(self.columns[i]) == 1):
 
-                    if (self.btnPress == [i,n]):
-                        continue
-
-                    else:
                         self.btnPress = [i,n]
 
                 GPIO.output(self.rows[n], GPIO.LOW)
             
-            return self.btnPress
+        return self.btnPress
+        
 
         #return self.btnPress
 			
