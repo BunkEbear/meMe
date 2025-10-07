@@ -72,23 +72,24 @@ class numPadIn(inputSuperclass):
                     if (not([i,n] == self.btnPress)):
 
                         self.btnPress = [i,n]
+                        return [i,n]
                         #print(self.btnPress)
                     
-                else:
+                #else:
                     #if theres a button press but its continuous
-                    self.btnPress = None
+                    #self.btnPress = None
                 
-                if self.btnPress:
-                    return self.btnPress
+                #if self.btnPress:
+                    #return self.btnPress
                 
 
-            else:
-                #if theres no button press detected
-                self.btnPress = None
+                else:
+                    #if theres no button press detected
+                    return None
                     
             GPIO.output(self.rows[n], GPIO.LOW)
 
-        return self.btnPress
+        #return self.btnPress
 			
         #reurns rhe button if its the first time frame its being pressed down in a held down press
         #if no button pressed returns [None,None]
