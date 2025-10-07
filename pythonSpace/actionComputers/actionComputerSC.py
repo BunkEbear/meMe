@@ -43,8 +43,9 @@ class numPadFace:
     def numPadCommand(self,numPcoords):
 
         if numPcoords == self.lastBtnPress:
-            #print('PISSSSSSS')
+            print('PISSSSSSS')
             print(self.lastBtnPress)
+
             return self.faceIndex
 
 
