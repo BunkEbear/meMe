@@ -122,7 +122,7 @@ while True:
         if cranityCheck:
             print(cranityCheck)
 
-    if not(inputComms[0] == [None, None]):
+    if (inputComms[0]):
         switchFace = faces[currFace].numPadCommand(inputComms[0])
 
 
