@@ -65,8 +65,9 @@ class numberPadNumbers(numPadFace):
 
     def __init__(self, displayObject):
 
+        super().__init__(displayObject)
 
-        self.display = displayObject
+       #self.display = displayObject
         
         self.shell = subprocess.Popen(
             ["bash"], 
