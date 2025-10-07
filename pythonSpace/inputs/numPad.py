@@ -61,7 +61,7 @@ class numPadIn(inputSuperclass):
                 #if the column hears the row then we know
                 if(GPIO.input(self.columns[i]) == 1):
                     self.btnPress = [i,n]
-                    print ([i,n])
+                    #print ([i,n])
 
 
             
