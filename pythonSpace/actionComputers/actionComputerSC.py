@@ -39,8 +39,9 @@ class numPadFace:
 #FUNCTION TO DEAL WITH THE NUMPAD INPUTS
 
     def numPadCommand(self,numPcoords):
+        #self.lastBtnPress = [None,None]
         
-        if numPcoords == None:
+        if numPcoords == [None,None]:
             return self.faceIndex
 
         padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()

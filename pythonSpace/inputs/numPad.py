@@ -68,6 +68,7 @@ class numPadIn(inputSuperclass):
                         self.btnPress = [i,n]
 
                 GPIO.output(self.rows[n], GPIO.LOW)
+            
             return self.btnPress
 
         #return self.btnPress
