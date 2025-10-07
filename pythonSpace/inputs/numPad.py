@@ -60,34 +60,16 @@ class numPadIn(inputSuperclass):
 
                 #if the column hears the row then we know
                 if(GPIO.input(self.columns[i]) == 1):
-                    #print('buttonPressDetected')
 
-                    #print("womp")
-                    
-                    
-                    #print("column: " + str(i) + "    row: " + str(n))
-
-                    
-
-                    if (not([i,n] == self.btnPress)):
-
-                        self.btnPress = [i,n]
-                        return [i,n]
-                        #print(self.btnPress)
-                    
-                #else:
-                    #if theres a button press but its continuous
-                    #self.btnPress = None
-                
-                #if self.btnPress:
-                    #return self.btnPress
-                
+                    if (self.btnPress == [i,n]):
+                        continue
 
                     else:
-                        #if theres no button press detected
-                        return None
+                        self.btnPress = [i,n]
+                        return [i,n]
                     
             GPIO.output(self.rows[n], GPIO.LOW)
+            self.btnPress = None
             return None
 
         #return self.btnPress
