@@ -125,7 +125,7 @@ while True:
 
     if (inputComms[0]):
         #print (inputComms[0])
-        print (inputComms[0])
+        #print (inputComms[0])
         switchFace = faces[currFace].numPadCommand(inputComms[0])
 
 

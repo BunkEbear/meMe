@@ -47,15 +47,19 @@ class numPadFace:
             return self.faceIndex
 
 
-        self.lastBtnPress = numPcoords
+        
 
         padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
             #print('numPadToAction')
+        
     
         if padToAction:
+            self.lastBtnPress = numPcoords
             return(padToAction)
+            
         else:
             return self.faceIndex
+        
     
 
 
