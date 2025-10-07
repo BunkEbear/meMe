@@ -111,6 +111,7 @@ currFace = 0
 while True:
 
     inputComms = []
+    #array of input device inputs taken from the array of input devices
     #defined by length of inputDevs
 
     for i in range(len(inputDevs)):
@@ -123,6 +124,7 @@ while True:
             print(cranityCheck)
 
     if (inputComms[0]):
+        print (inputComms[0])
         switchFace = faces[currFace].numPadCommand(inputComms[0])
 
 

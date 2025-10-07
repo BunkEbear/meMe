@@ -72,11 +72,14 @@ class numPadIn(inputSuperclass):
                     if (not([i,n] == self.btnPress)):
 
                         self.btnPress = [i,n]
-                        print(self.btnPress)
+                        #print(self.btnPress)
                     
                 else:
                     #if theres a button press but its continuous
                     self.btnPress = None
+                
+                if self.btnPress:
+                    return self.btnPress
                 
 
             else:
