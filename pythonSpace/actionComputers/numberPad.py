@@ -18,7 +18,7 @@ class numberPadNumbers(numPadFace):
 
         #print(self.number)
         self.binDispCommand(int(num))
-        print(num)
+        #print(num)
         
         #self.blinkNoti(0.1)
 
@@ -27,7 +27,7 @@ class numberPadNumbers(numPadFace):
     def call(self):
 		#None
 
-        print(self.number)
+        #print(self.number)
 		
         if (self.number == ""):
             self.shell.stdin.write('sudo mmcli -m 0 --command="ATA"\n')

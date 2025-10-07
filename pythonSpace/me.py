@@ -120,11 +120,12 @@ while True:
 
         cranityCheck = inputDevs[i].report()
         
-        if cranityCheck:
-            print(cranityCheck)
+        #if cranityCheck:
+            #print(cranityCheck)
 
     if (inputComms[0]):
-        print (inputComms[0])
+        #print (inputComms[0])
+
         switchFace = faces[currFace].numPadCommand(inputComms[0])
 
 
