@@ -146,7 +146,7 @@ while True:
 
             if switchFace in range(len(faces)):
 
-                print(switchFace)
+                #print(switchFace)
 
                 currFace = switchFace
             
