@@ -43,7 +43,7 @@ class numPadFace:
     def numPadCommand(self,numPcoords):
 
         if numPcoords == self.lastBtnPress:
-            print('PISSSSSSS')
+            #print('PISSSSSSS')
             print(self.lastBtnPress)
 
             return self.faceIndex
@@ -53,6 +53,7 @@ class numPadFace:
 
         padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
             #print('numPadToAction')
+        print(numPcoords)
         
     
         if padToAction:
