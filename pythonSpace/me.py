@@ -145,6 +145,9 @@ while True:
 
 
             if switchFace in range(len(faces)):
+
+                print(switchFace)
+
                 currFace = switchFace
             
             #except:
