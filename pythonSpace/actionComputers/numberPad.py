@@ -46,11 +46,11 @@ class numberPadNumbers(numPadFace):
 
 
             print(self.shell.stdout)
-            print('IM GOING TO PISS ON THE MOON')
+            #print('IM GOING TO PISS ON THE MOON')
             #print('call part')
 
             self.upSend()
-            self.upSend()
+            #self.upSend()
 
 
     

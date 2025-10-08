@@ -127,10 +127,15 @@ while True:
         #print (inputComms[0])
         #print (inputComms[0])
         switchFace = faces[currFace].numPadCommand(inputComms[0])
+        print('switchFace' + switchFace)
 
 
         if switchFace in faces:
             currFace = switchFace
+    
+
+
+
 
     #here you are fucker, time to die
 
