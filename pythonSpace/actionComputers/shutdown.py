@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+from subprocess import call
 
 from actionComputers.actionComputerSC import numPadFace
+
 
 import subprocess
 
@@ -23,11 +25,15 @@ class shutDown(numPadFace):
             else:
                 if numPcoords == [None, None]:
 
-                    print('shitting DOwn')
+                    
 
-                    from subprocess import call
-                    call("sudo shutdown -h now", shell=True)
+                    
                     self.downRec()
+                    print('shitting DOwn')
+                    
+
+                    #call("sudo shutdown -h now", shell=True)
+
 
                     self.lastBtnPress = numPcoords
                     return self.faceIndex
