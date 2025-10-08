@@ -16,7 +16,7 @@ class numberPadNumbers(numPadFace):
 
         self.number += num
 
-        #print(self.number)
+        print(self.number)
         self.binDispCommand(int(num))
         #print(num)
         
