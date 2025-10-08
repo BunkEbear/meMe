@@ -46,6 +46,7 @@ class numberPadNumbers(numPadFace):
 
 
             print(self.shell.stdout.decode('utf-8'))
+            print('IM GOING TO PISS ON THE MOON')
             #print('call part')
 
             self.upSend()
