@@ -42,7 +42,10 @@ class numberPadNumbers(numPadFace):
         
             self.shell.stdin.write('sudo mmcli -m 0 --command="ATD+1' + self.number + ';"\n')
             self.shell.stdin.flush()
-            print(self.shell.stdout())
+
+
+
+            print(self.shell.stdout.decode('utf-8'))
             #print('call part')
 
             self.upSend()
