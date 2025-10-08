@@ -86,7 +86,7 @@ NUMPAD = numPad.numPadIn()
 
 #
 
-
+#add fifo input? or dbus input?
 inputDevs = [NUMPAD]
 
 for i in range(len(inputDevs)):
@@ -95,6 +95,10 @@ for i in range(len(inputDevs)):
 
 
 faces = [NUMIN]
+
+
+
+
 
 #give the faces their index
 for i in range(len(faces)):
@@ -105,6 +109,10 @@ for i in range(len(faces)):
 
 #set the default face to phone
 currFace = 0
+
+
+
+
 
 
 
@@ -132,8 +140,11 @@ while True:
 
             print('switchFace' + str(switchFace))
 
-            if switchFace in faces:
-                currFace = switchFace
+            try:
+                currFace = faces[switchFace]
+            
+            except:
+                print('idk some error, probably out of index shithead')
     
 
 

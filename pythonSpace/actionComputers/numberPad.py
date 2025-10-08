@@ -44,8 +44,10 @@ class numberPadNumbers(numPadFace):
             self.shell.stdin.flush()
 
 
+            #this line doesnt even work btw \/\/\/\/\/
+            #print(self.shell.stdout)
 
-            print(self.shell.stdout)
+            
             #print('IM GOING TO PISS ON THE MOON')
             #print('call part')
 
