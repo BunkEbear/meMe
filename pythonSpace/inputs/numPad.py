@@ -46,8 +46,8 @@ class numPadIn(inputSuperclass):
 
 
     def report(self):
-        #self.btnPress = [None, None]
-        self.btnPress = None
+        self.btnPress = [None, None]
+        #self.btnPress = None
         
         for n in range(len(self.rows)):
 
@@ -66,6 +66,10 @@ class numPadIn(inputSuperclass):
 
             
             GPIO.output(self.rows[n], GPIO.LOW)
+
+        
+
+
             
         return self.btnPress
         
