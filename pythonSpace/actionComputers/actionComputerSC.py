@@ -44,7 +44,6 @@ class numPadFace:
 
         padToAction = None
 
-        self.lastBtnPress = numPcoords
         if numPcoords == self.lastBtnPress:
             #print('PISSSSSSS')
             
@@ -55,6 +54,7 @@ class numPadFace:
         else:
             padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
             #print('numPadToAction')
+            self.lastBtnPress = numPcoords
             print(numPcoords)
         
 
