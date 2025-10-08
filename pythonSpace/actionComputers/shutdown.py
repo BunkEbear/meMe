@@ -32,7 +32,7 @@ class shutDown(numPadFace):
                     print('shitting DOwn')
                     
 
-                    #call("sudo shutdown -h now", shell=True)
+                    call("sudo shutdown -h now", shell=True)
 
 
                     self.lastBtnPress = numPcoords
