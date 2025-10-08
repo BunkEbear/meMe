@@ -118,7 +118,7 @@ class numPadFace:
     #in this case t would serve 
     def blinkNoti(self,t=0):
 
-        print('bink')
+        #print('bink')
         
         self.binDispCommand(15)
         sleep(t)
