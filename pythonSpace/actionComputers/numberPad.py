@@ -35,7 +35,7 @@ class numberPadNumbers(numPadFace):
 
             self.downRec()
         
-        elif (int(self.number) < 2):
+        elif (int(self.number) < 10):
             return(int(self.number))
 
         else:
@@ -47,7 +47,7 @@ class numberPadNumbers(numPadFace):
             #this line doesnt even work btw \/\/\/\/\/
             #print(self.shell.stdout)
 
-            
+
             #print('IM GOING TO PISS ON THE MOON')
             #print('call part')
 
