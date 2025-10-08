@@ -56,53 +56,42 @@ setUp()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+#GET INPUT DEVICES
 import inputs.numPad as numPad
-
-import actionComputers.numberPad as numberPad
-
-import actionComputers.shutdown as shitDown
-
-#import actionComputers.texting as texting
-#import actionComputers.musicControl as musicControl
-#import actionComputers.gitDown as gitDown
-
-
-
-
-
-#starts face for processing numbers as a numberpad
-NUMIN = numberPad.numberPadNumbers(DISPLAY)
-
-SHUTDOWN = shitDown.shutDown(DISPLAY)
-
-#TEXTIN = texting.messaging(DISPLAY)
-
-#MC = musicControl.controlMusic(DISPLAY)
-
-#jitPull = gitDown.gitPull
-
-
-
 NUMPAD = numPad.numPadIn()
 
 
+#GET INPUT COMPUTERS
+import actionComputers.numberPad as numberPad
+import actionComputers.shutdown as shitDown
+import actionComputers.musicControl as mc
+NUMIN = numberPad.numberPadNumbers(DISPLAY)
+SHUTDOWN = shitDown.shutDown(DISPLAY)
+MUSIC = mc.controlMusic(DISPLAY)
 
-#
 
-#add fifo input? or dbus input?
+
+#SET INPUT DEVICE INDEXS
 inputDevs = [NUMPAD]
-
+#add fifo input? or dbus input?
 for i in range(len(inputDevs)):
     inputDevs[i].setIndex(i)
 
 
-
-faces = [NUMIN,SHUTDOWN]
-
-
-
-
-
+#SET INPUT COMPUTERS INDEXS
+faces = [NUMIN,SHUTDOWN,MUSIC]
 #give the faces their index
 for i in range(len(faces)):
     faces[i].setIndex(i)
@@ -110,13 +99,10 @@ for i in range(len(faces)):
 
 
 
+
+
 #set the default face to phone
 currFace = 0
-
-
-
-
-
 
 
 while True:

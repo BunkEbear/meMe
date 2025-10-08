@@ -9,6 +9,11 @@ class numPadFace:
 
     def returnFaceID(self,faceIndex):
         return faceIndex
+    
+
+    def backToNumPad(self):
+        self.returnFaceID(0)
+
 
     def setIndex(self,indexFace):
         self.faceIndex = indexFace
@@ -21,10 +26,10 @@ class numPadFace:
         self.faceIndex = None
     
         self.duoLingo = [
-            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
-            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
-            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
-            [lambda: self.returnFaceID(0),lambda: self.undefined(),lambda: self.undefined()]
+            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
+            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
+            [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
+            [lambda: self.backToNumPad(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()]
             ]
         
         self.display = displayObject
