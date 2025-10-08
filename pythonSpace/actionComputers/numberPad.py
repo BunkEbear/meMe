@@ -27,7 +27,7 @@ class numberPadNumbers(numPadFace):
     def call(self):
 		#None
 
-        #print(self.number)
+        print('callFunction')
 		
         if (self.number == ""):
             self.shell.stdin.write('sudo mmcli -m 0 --command="ATA"\n')
@@ -35,7 +35,7 @@ class numberPadNumbers(numPadFace):
 
             self.downRec()
         
-        elif (int(self.number) > 2):
+        elif (int(self.number) < 2):
             return(int(self.number))
 
         else:
@@ -43,6 +43,7 @@ class numberPadNumbers(numPadFace):
             self.shell.stdin.write('sudo mmcli -m 0 --command="ATD+1' + self.number + ';"\n')
             self.shell.stdin.flush()
             print(self.shell.stdout())
+            #print('call part')
 
             self.upSend()
             self.upSend()
