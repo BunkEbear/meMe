@@ -55,9 +55,10 @@ class numPadFace:
         else:
             padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
             #print('numPadToAction')
+            print(numPcoords)
         
 
-        print(numPcoords)
+        #print(numPcoords)
         
     
         if padToAction:
