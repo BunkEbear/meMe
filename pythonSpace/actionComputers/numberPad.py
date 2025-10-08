@@ -42,6 +42,7 @@ class numberPadNumbers(numPadFace):
         
             self.shell.stdin.write('sudo mmcli -m 0 --command="ATD+1' + self.number + ';"\n')
             self.shell.stdin.flush()
+            print(self.shell.stdout())
 
             self.upSend()
             self.upSend()
@@ -59,7 +60,7 @@ class numberPadNumbers(numPadFace):
         self.number = ""
 
         self.blinkNoti(0.1)
-        self.blinkNoti(0.1)
+        #self.blinkNoti(0.1)
 
 
 
