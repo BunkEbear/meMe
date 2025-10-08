@@ -60,6 +60,7 @@ import inputs.numPad as numPad
 
 import actionComputers.numberPad as numberPad
 
+import actionComputers.shutdown as shitDown
 
 #import actionComputers.texting as texting
 #import actionComputers.musicControl as musicControl
@@ -71,6 +72,8 @@ import actionComputers.numberPad as numberPad
 
 #starts face for processing numbers as a numberpad
 NUMIN = numberPad.numberPadNumbers(DISPLAY)
+
+SHUTDOWN = shitDown.shutDown(DISPLAY)
 
 #TEXTIN = texting.messaging(DISPLAY)
 
@@ -94,7 +97,7 @@ for i in range(len(inputDevs)):
 
 
 
-faces = [NUMIN]
+faces = [NUMIN,SHUTDOWN]
 
 
 
