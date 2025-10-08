@@ -53,6 +53,7 @@ class numPadFace:
 
         padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
             #print('numPadToAction')
+        self.lastBtnPress = numPcoords
         print(numPcoords)
         
     
