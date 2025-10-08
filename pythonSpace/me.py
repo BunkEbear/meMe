@@ -143,11 +143,12 @@ while True:
 
             print('switchFace' + str(switchFace))
 
-            try:
-                currFace = faces[switchFace]
+
+            if switchFace in range(len(faces)):
+                currFace = switchFace
             
-            except:
-                print('idk some error, probably out of index shithead')
+            #except:
+            #    print('idk some error, probably out of index shithead')
     
 
 
