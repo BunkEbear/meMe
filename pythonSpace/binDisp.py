@@ -92,10 +92,10 @@ class binaryDisplay:
 
     def __init__(self):
 
-        self.binLED0 = 22
-        self.binLED1 = 18
-        self.binLED2 = 16
-        self.binLED3 = 12
+        self.binLED0 = 12
+        self.binLED1 = 16
+        self.binLED2 = 18
+        self.binLED3 = 22
 
         GPIO.setmode(GPIO.BOARD)
 
