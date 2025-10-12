@@ -35,14 +35,20 @@ class controlMusic(actionComputerSC.numPadFace):
             self.playlistIndex += 1
         else:
             self.playlistIndex -= 1
-
-        self.setSong(self.playlistContents[self.playlistIndex])
+        
+        self.playlistIndex = self.playlistIndex - len(self.playlistContents) * self.playlistIndex // len(self.playlistContents)
         #fuck you
+        self.setSong(self.playlistContents[self.playlistIndex])
+        
     
 
 
     def nextPrevPlaylist(self, npb):
         self.blinkNoti()
+
+        
+
+
 
 
 
@@ -87,19 +93,19 @@ class controlMusic(actionComputerSC.numPadFace):
 
 
         #self.duoLingo[0][0] = None
-        self.duoLingo[0][1] = lambda: self.nextPrevPlaylist()
+        self.duoLingo[0][1] = lambda: self.nextPrevPlaylist(False) #last playlist
         #self.duoLingo[0][2] = None
         #self.duoLingo[0][3] = None
 
 
-        self.duoLingo[1][0] = lambda: self.nextPrevSong()
+        self.duoLingo[1][0] = lambda: self.nextPrevSong(True)
         self.duoLingo[1][1] = lambda: self.playPause()
-        self.duoLingo[1][2] = lambda: self.nextPrevSong()
+        self.duoLingo[1][2] = lambda: self.nextPrevSong(False)
         #self.duoLingo[1][3] = None
 
 
         #self.duoLingo[2][0] = None
-        self.duoLingo[2][1] = lambda: self.nextPrevPlaylist()
+        self.duoLingo[2][1] = lambda: self.nextPrevPlaylist(True) #next playlist
         #self.duoLingo[2][2] = None
         #self.duoLingo[2][3] = None
 
