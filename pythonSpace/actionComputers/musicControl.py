@@ -15,14 +15,14 @@ class controlMusic(actionComputerSC.numPadFace):
         self.blinkNoti()
 
         if not(pygame.mixer.get_busy):
-            self.song.play
+            self.song.play()
         else:
-            self.song.play
+            self.song.play()
 
 
 
     def setSong(self,song):
-        pygame.mixer.stop
+        pygame.mixer.stop()
         self.song = pygame.mixer.Sound(song)
         self.playPause()
 
@@ -39,6 +39,8 @@ class controlMusic(actionComputerSC.numPadFace):
         self.playlistIndex = self.playlistIndex - len(self.playlistContents) * self.playlistIndex // len(self.playlistContents)
         #fuck you
         self.setSong(self.playlistContents[self.playlistIndex])
+        #passes in a file object (not related to above comment)
+        #read it again (not related to above comment)
         
     
 
@@ -46,7 +48,7 @@ class controlMusic(actionComputerSC.numPadFace):
     def nextPrevPlaylist(self, npb):
         self.blinkNoti()
 
-        
+
 
 
 
@@ -67,13 +69,15 @@ class controlMusic(actionComputerSC.numPadFace):
 
         self.playlistIndex = 0
 
-        self.playlistPath = '/home/bunkebear/meMe/music'
+        self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
 
 
-        #self.playListFolder = '/home/bunkebear/meMe/music'
+        self.playListsFolder = '/mnt/pier/music'
 
         
         self.playlistContents = os.listdir(self.playlistPath)
+
+        self.playlists = os.listdir(self.playListsFolder)
 
         
 
