@@ -69,10 +69,11 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         self.playlistIndex = 0
 
+        self.playListsFolder = '/mnt/pier/music'
+
+
         self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
 
-
-        self.playListsFolder = '/mnt/pier/music'
 
         
         self.playlistContents = os.listdir(self.playlistPath)
