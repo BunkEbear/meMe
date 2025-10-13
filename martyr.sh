@@ -16,7 +16,7 @@ echo 'meStarted(martyd)'
 
 source /home/bunkebear/meMe/pyspective/bin/activate
 
-sudo /home/bunkebear/meMe/pythonSpace/me.py
+sudo -E /home/bunkebear/meMe/pythonSpace/me.py
 
 
 
