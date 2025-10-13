@@ -14,6 +14,8 @@ echo 'meStarted(martyd)'
 
 #sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
+sudo mount /dev/mmcblk0p3 /mnt/pier
+
 source /home/bunkebear/meMe/pyspective/bin/activate
 
 sudo -E /home/bunkebear/meMe/pythonSpace/me.py
