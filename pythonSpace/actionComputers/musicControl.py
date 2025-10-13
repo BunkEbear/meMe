@@ -8,7 +8,7 @@ import os
 
 from os.path import isfile, join
 
-class controlMusic(actionComputerSC.numPadFace):
+class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
     def playPause(self):
