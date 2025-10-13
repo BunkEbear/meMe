@@ -12,8 +12,9 @@ echo 'meStarted(martyd)'
 
 #ls /home/bunkebear/meMe/pythonSpace/ | echo
 
-sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
+#sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
+source /home/bunkebear/meMe/pyspective/bin/activate
 
 sudo /home/bunkebear/meMe/pythonSpace/me.py
 
