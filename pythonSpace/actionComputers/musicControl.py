@@ -29,6 +29,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
     def nextPrevSong(self, npb):
         self.blinkNoti()
+        #print('real')
 
             #next
         if npb:
@@ -37,6 +38,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             self.playlistIndex -= 1
         
         self.playlistIndex = self.playlistIndex - len(self.playlistContents) * self.playlistIndex // len(self.playlistContents)
+       
+        print(len(self.playlistContents) * self.playlistIndex // len(self.playlistContents))
+       
         #fuck you
         self.setSong(self.playlistContents[self.playlistIndex])
         #passes in a file object (not related to above comment)
