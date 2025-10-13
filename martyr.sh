@@ -12,7 +12,7 @@ echo 'meStarted(martyd)'
 
 #ls /home/bunkebear/meMe/pythonSpace/ | echo
 
-#sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
+sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
 sudo mount /dev/mmcblk0p3 /mnt/pier
 
