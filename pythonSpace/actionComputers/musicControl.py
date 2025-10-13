@@ -3,7 +3,7 @@
 import actionComputers.actionComputerSC
 
 import pygame
-import random
+#import random
 import os
 
 from os.path import isfile, join
@@ -22,8 +22,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
     def setSong(self,song):
-        pygame.mixer.stop()
-        self.song = pygame.mixer.Sound(song)
+        pygame.mixer.stop()        
+        self.song = pygame.mixer.Sound(self.playlistPath + '/' + song)
         self.playPause()
 
 
