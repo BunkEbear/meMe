@@ -65,8 +65,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #self.playing = False
         #i think pygame tracks this by default
 
-        self.song = None
-
+        
+        #starting index of which song in the playlist
         self.playlistIndex = 0
 
         self.playListsFolder = '/mnt/pier/music'
@@ -79,6 +79,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.playlistContents = os.listdir(self.playlistPath)
 
         self.playlists = os.listdir(self.playListsFolder)
+
+        self.song = pygame.mixer.Sound(self.playlistPath + '/' + self.playlistContents[self.playlistIndex])
 
         
 
