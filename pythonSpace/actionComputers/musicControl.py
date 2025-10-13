@@ -34,6 +34,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             #next
         if npb:
             self.playlistIndex += 1
+            print('job')
         else:
             self.playlistIndex -= 1
         
