@@ -40,7 +40,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         
         self.playlistIndex = self.playlistIndex - len(self.playlistContents) * self.playlistIndex // len(self.playlistContents)
        
-        print(len(self.playlistContents) * self.playlistIndex // len(self.playlistContents))
+        print('runarounds: ' + str(len(self.playlistContents) * self.playlistIndex // len(self.playlistContents)))
+        print('songIndexInPlaylist: '+str(self.playlistIndex))
+
        
         #fuck you
         self.setSong(self.playlistContents[self.playlistIndex])
