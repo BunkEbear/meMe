@@ -33,7 +33,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
             #next
         if npb:
-            self.playlistIndex += 1
+            self.playlistIndex += 2
             print('job')
         else:
             self.playlistIndex -= 1
@@ -112,9 +112,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #self.duoLingo[0][3] = None
 
 
-        self.duoLingo[1][0] = lambda: self.nextPrevSong(True)
+        self.duoLingo[1][0] = lambda: self.nextPrevSong(False)
         self.duoLingo[1][1] = lambda: self.playPause()
-        self.duoLingo[1][2] = lambda: self.nextPrevSong(False)
+        self.duoLingo[1][2] = lambda: self.nextPrevSong(True)
         #self.duoLingo[1][3] = None
 
 
