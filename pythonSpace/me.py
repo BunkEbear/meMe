@@ -128,6 +128,8 @@ while True:
 
         switchFace = faces[currFace].numPadCommand(inputComms[0])
         
+        print(switchFace)
+
         if not(switchFace == currFace):
 
             print('switchFace' + str(switchFace))
