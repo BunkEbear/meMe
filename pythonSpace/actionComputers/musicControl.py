@@ -27,8 +27,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             pygame.mixer.music.pause()
 
         else:
-            #self.song.unpause()
-            pygame.mixer.music.play()
+            self.mixer.music.unpause()
+            
+            #unpause
         
 
 
@@ -46,6 +47,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
     def setSong(self,song):
         pygame.mixer.music.unload()
         pygame.mixer.music.load(self.playlistPath + '/' + song)
+        pygame.mixer.music.play()
+        #self.playPause(True)
         #pygame.mixer.music.play()
         #self.playPause(True)
 
@@ -67,7 +70,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             #next
         if npb:
             self.songOfPlaylist += 1
-            print('hello (balloon boy accent)')
+            #print('hello (balloon boy accent)')
         else:
             self.songOfPlaylist -= 1
             #None
@@ -184,8 +187,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #set up initial playlist and volume
         #self.song = pygame.mixer.Sound(self.playlistPath + '/' + self.playlistContents[self.playlistIndex])
 
-        pygame.mixer.music.set_volume(0.4)
+        pygame.mixer.music.set_volume(0.1)
         self.setSong(self.playlistContents[self.songOfPlaylist])
+        self.playPause(True)
 
 
 
