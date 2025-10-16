@@ -16,7 +16,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 ######################################################################################PAUSE / play
 
-    def playPause(self, b = pygame.mixer.music.get_busy):
+    def playPause(self, b = pygame.mixer.music.get_busy()):
         self.blinkNoti()
 
         if (b):
@@ -62,7 +62,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             #next
         if npb:
             self.songOfPlaylist += 1
-            print('job')
+            print('job!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
         else:
             self.songOfPlaylist -= 1
         
