@@ -66,7 +66,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
             #next
         if npb:
-            self.songOfPlaylist += 1
+            self.songOfPlaylist = 1
         else:
             self.songOfPlaylist -= 1
         
