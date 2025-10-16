@@ -62,6 +62,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.blinkNoti()
         #print('real')
 
+        print(npb)
+
             #next
         if npb:
             self.songOfPlaylist += 1
