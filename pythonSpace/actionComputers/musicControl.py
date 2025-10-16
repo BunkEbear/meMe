@@ -22,6 +22,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
     def playPause(self, b):
         self.blinkNoti()
 
+        self.playing = not(self.playing)
+        
+
         #print(b)
 
         if not(b):
@@ -171,6 +174,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #self.playing = False
         #i think pygame tracks this by default
 
+        self.playing = False
 
         #self.volume = 0.4
         
@@ -214,7 +218,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
         self.duoLingo[1][0] = lambda: self.nextPrevSong(False)
-        self.duoLingo[1][1] = lambda: self.playPause()
+        self.duoLingo[1][1] = lambda: self.playPause(not(self.playing))
         self.duoLingo[1][2] = lambda: self.nextPrevSong(True)
         #self.duoLingo[1][3] = None
 
