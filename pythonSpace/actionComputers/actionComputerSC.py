@@ -14,7 +14,9 @@ class numPadFace:
     
 
     def backToNumPad(self):
-        print(self.returnFaceID(0))
+        print('backToNumpad')
+        return(self.returnFaceID(0))
+        
         #change to return
         
 
