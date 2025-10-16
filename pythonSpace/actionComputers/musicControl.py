@@ -62,26 +62,26 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.blinkNoti()
         #print('real')
 
-        print(npb)
+        #print(npb)
 
             #next
         if npb:
             self.songOfPlaylist += 1
-            print('job!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
         else:
             self.songOfPlaylist -= 1
         
         self.songOfPlaylist = self.songOfPlaylist - len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)
+
+        #print(self.songOfPlaylist)
        
-        print('runarounds: ' + str(len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)))
+        #print('runarounds: ' + str(len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)))
         print('songIndexInPlaylist: '+str(self.songOfPlaylist))
 
        
         #fuck you
         self.setSong(self.playlistContents[self.songOfPlaylist])
 
-        print(self.playlistContents)
+        #print(self.playlistContents)
         #passes in a file object (not related to above comment)
         #read it again (not related to above comment)
         
