@@ -67,6 +67,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             #next
         if npb:
             self.songOfPlaylist = 1
+            print('hello (balloon boy accent)')
         else:
             #self.songOfPlaylist -= 1
             None
