@@ -169,7 +169,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #set up initial playlist and volume
         #self.song = pygame.mixer.Sound(self.playlistPath + '/' + self.playlistContents[self.playlistIndex])
 
-        pygame.mixer.Sound.set_volume(0.4)
+        pygame.mixer.music.set_volume(0.4)
         self.setSong(self.playlistContents[self.songOfPlaylist])
 
 
