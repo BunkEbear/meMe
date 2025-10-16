@@ -66,13 +66,17 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
             #next
         if npb:
-            self.songOfPlaylist = 1
+            self.songOfPlaylist += 1
             print('hello (balloon boy accent)')
         else:
-            #self.songOfPlaylist -= 1
-            None
+            self.songOfPlaylist -= 1
+            #None
 
-        self.songOfPlaylist = self.songOfPlaylist - len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)
+
+        
+
+        self.songOfPlaylist = self.songOfPlaylist - len(self.playlistContents) * (self.songOfPlaylist // len(self.playlistContents))
+
 
         #print(self.songOfPlaylist)
        
@@ -163,7 +167,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.songOfPlaylist = 0
         self.playlistIndex = 0
 
-        print('hello (balon boy)')
+        #print('hello (balon boy)')
 
 
         #location of music
