@@ -75,7 +75,10 @@ class numPadFace:
     
         if padToAction:
             self.lastBtnPress = numPcoords
+
+            print(padToAction)
             return(padToAction)
+            
             
         else:
             return self.faceIndex
