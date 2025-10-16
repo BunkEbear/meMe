@@ -35,6 +35,9 @@ class numberPadNumbers(numPadFace):
 
             self.downRec()
         
+
+
+
         elif (int(self.number) < 10):
             return(int(self.number))
 
@@ -118,5 +121,6 @@ class numberPadNumbers(numPadFace):
         self.duoLingo[3][0] = lambda: self.clear()
         self.duoLingo[3][1] = lambda: self.addNum('0')
         self.duoLingo[3][2] = lambda: self.call()
+        #the number is returned to here
         #self.duoLingo[3][3] = None
 

@@ -1,6 +1,8 @@
 from time import sleep
 
 
+
+
 class numPadFace:
 
     def undefined(self):
@@ -15,7 +17,9 @@ class numPadFace:
 
     def backToNumPad(self):
         print('backToNumpad')
-        return(self.returnFaceID(0))
+        #return(self.returnFaceID(0))
+
+        return 0
         
         #change to return
         
@@ -51,6 +55,7 @@ class numPadFace:
 
 #FUNCTION TO DEAL WITH THE NUMPAD INPUTS
 
+    #here is where the numpad coords arive
     def numPadCommand(self,numPcoords):
 
         padToAction = None
@@ -69,6 +74,7 @@ class numPadFace:
                 return self.faceIndex
             
             padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
+
             #print('numPadToAction')
             self.lastBtnPress = numPcoords
             #print(numPcoords)
@@ -81,6 +87,7 @@ class numPadFace:
             self.lastBtnPress = numPcoords
 
             print(padToAction)
+
             return(padToAction)
             
             
