@@ -28,6 +28,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         else:
             pygame.mixer.music.unpause()
+            print('playing:' + self.playlistContents[self.songOfPlaylist])
             
             #unpause
         
@@ -113,10 +114,15 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         if npb:
             self.playlistIndex += 1
-            print('job')
+            print('next playlist')
         else:
             self.playlistIndex -= 1
 
+
+        #no overflow
+        self.playlistIndex = self.playlistIndex - len(self.playlists) * (self.playlistIndex // len(self.playlists))
+
+        print('playlist: ' + str(self.playlistIndex))
 
         self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
 
