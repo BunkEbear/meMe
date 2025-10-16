@@ -8,6 +8,9 @@ import os
 
 from os.path import isfile, join
 
+pygame.mixer.init()
+
+
 class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
@@ -143,7 +146,6 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         super().__init__(displayObject)
         
-        pygame.mixer.init()
 
         #self.playing = False
         #i think pygame tracks this by default
