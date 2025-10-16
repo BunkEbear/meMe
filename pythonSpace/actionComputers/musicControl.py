@@ -27,7 +27,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             pygame.mixer.music.pause()
 
         else:
-            self.mixer.music.unpause()
+            pygame.mixer.music.unpause()
             
             #unpause
         
