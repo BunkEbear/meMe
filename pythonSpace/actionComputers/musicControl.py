@@ -186,8 +186,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         #lists of contents
         self.playlistContents = os.listdir(self.playlistPath)
-        self.playlists = os.listdir(self.playListsFolder)
-        print(self.playlists)
+        self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if os.path.isfile(playlist)]
+
+        #print(self.playlists)
 
 
 
