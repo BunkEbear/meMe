@@ -163,6 +163,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.songOfPlaylist = 0
         self.playlistIndex = 0
 
+        print('hello (balon boy)')
+
 
         #location of music
         self.playListsFolder = '/mnt/pier/music'
