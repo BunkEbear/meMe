@@ -186,7 +186,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         #lists of contents
         self.playlistContents = os.listdir(self.playlistPath)
-        self.playlists = os.listdir(self.playListsFolder)
+        self.playlists = os.listdir(self.playListsFolder + '/')
 
 
 
