@@ -8,11 +8,13 @@ class numPadFace:
 
 
     def returnFaceID(self,faceIndex):
+        print('ASSIGNING FACE: ' + str(faceIndex))
         return faceIndex
     
 
     def backToNumPad(self):
         self.returnFaceID(0)
+        
 
 
     def setIndex(self,indexFace):
