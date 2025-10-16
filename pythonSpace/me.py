@@ -42,6 +42,7 @@ def setUp():
         else:
             print("MODEM SUPPOSEDLY FOUND")
             print(result.stdout)
+            DISPLAY.displayNumber(0)
 
             return
             #end of setup returns out of function

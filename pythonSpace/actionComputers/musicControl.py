@@ -11,29 +11,46 @@ from os.path import isfile, join
 class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
-    def playPause(self):
+
+
+
+######################################################################################PLAY
+
+    def playPause(self, b = pygame.mixer.get_busy):
         self.blinkNoti()
 
-        if not(pygame.mixer.get_busy):
-            self.song.play()
+        if (b):
+            self.song.pause()
         else:
-            self.song.play()
+            self.song.unpause()
+
+
+
+
+
+
+
+
 
 
 
     def setSong(self,song):
         pygame.mixer.stop()        
         self.song = pygame.mixer.Sound(self.playlistPath + '/' + song)
-        self.playPause()
+        self.playPause(True) #true means pause
+        self.song.play()
 #iAmGoingToGiveBirthToAHorse
 
+
+
+######################################################################################SONG CHANGE
     def nextPrevSong(self, npb):
         self.blinkNoti()
         #print('real')
 
             #next
         if npb:
-            self.playlistIndex += 2
+            self.playlistIndex += 1
             print('job')
         else:
             self.playlistIndex -= 1
@@ -46,18 +63,51 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
        
         #fuck you
         self.setSong(self.playlistContents[self.playlistIndex])
+        print(self.playlistContents)
         #passes in a file object (not related to above comment)
         #read it again (not related to above comment)
         
     
 
 
+
+
+
+
+
+
+
+
+
+
+######################################################################################PLAYLIST CHANGE
     def nextPrevPlaylist(self, npb):
         self.blinkNoti()
 
+        if npb:
+            self.playlistIndex += 1
+            print('job')
+        else:
+            self.playlistIndex -= 1
+
+
+        self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
+
+    
 
 
 
+
+
+######################################################################################VOLUME CHANGE
+    def volCont(self,b):
+
+        if b:
+            pygame.mixer.Sound.set_volume(pygame.mixer.Sound.get_volume() + 0.1)
+            print('up')
+        else:
+            print('down')
+            pygame.mixer.Sound.set_volume(pygame.mixer.Sound.get_volume() - 0.1)
 
 
 
@@ -72,8 +122,15 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #self.playing = False
         #i think pygame tracks this by default
 
+
+        #self.volume = 0.4
         
         #starting index of which song in the playlist
+
+
+        self.songOfPlaylist = 0
+
+
         self.playlistIndex = 0
 
         self.playListsFolder = '/mnt/pier/music'
@@ -92,21 +149,11 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         
 
 
+        pygame.mixer.Sound.set_volume(0.4)
 
 
 
-        #self.duoLingo = [
-		#[lambda: self.undefined(),lambda: self.nextPrevPlaylist(False),lambda: self.undefined()],
-
-#		[lambda: self.nextPrevSong(False),lambda: self.playPause(),lambda: self.nextPrevSong(True)],
-
-#		[lambda: self.undefined(),lambda: self.nextPrevPlaylist(True),lambda: self.undefined()],
-        
-#		[lambda: self.backToNumPad(),lambda: self.undefined(),lambda: self.undefined()]
-#		]
-
-
-        #self.duoLingo[0][0] = None
+        self.duoLingo[0][0] = lambda: self.volCont(True)
         self.duoLingo[0][1] = lambda: self.nextPrevPlaylist(False) #last playlist
         #self.duoLingo[0][2] = None
         #self.duoLingo[0][3] = None
@@ -118,7 +165,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #self.duoLingo[1][3] = None
 
 
-        #self.duoLingo[2][0] = None
+        self.duoLingo[2][0] = lambda: self.volCont(False)
         self.duoLingo[2][1] = lambda: self.nextPrevPlaylist(True) #next playlist
         #self.duoLingo[2][2] = None
         #self.duoLingo[2][3] = None
