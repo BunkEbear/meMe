@@ -14,6 +14,14 @@ source /home/bunkebear/meMe/pyspective/bin/activate
 #go to directory for git purposes
 cd /home/bunkebear/meMe
 
+#start me
+	sudo -E /home/bunkebear/meMe/pythonSpace/me.py
+
+
+#bash is a meme wth
+
+<<comment
+
 while true
 do
 	#start me
@@ -24,3 +32,5 @@ do
 	git pull
 
 done
+
+comment
