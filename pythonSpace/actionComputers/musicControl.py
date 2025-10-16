@@ -68,8 +68,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         if npb:
             self.songOfPlaylist = 1
         else:
-            self.songOfPlaylist -= 1
-        
+            #self.songOfPlaylist -= 1
+            None
+
         self.songOfPlaylist = self.songOfPlaylist - len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)
 
         #print(self.songOfPlaylist)
