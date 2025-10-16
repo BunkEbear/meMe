@@ -113,11 +113,11 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
     def volCont(self,b):
 
         if b:
-            pygame.mixer.Sound.set_volume(pygame.mixer.music.get_volume() + 0.1)
+            pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() + 0.1)
             print('up')
         else:
             print('down')
-            pygame.mixer.Sound.set_volume(pygame.mixer.music.get_volume() - 0.1)
+            pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() - 0.1)
 
 
 
