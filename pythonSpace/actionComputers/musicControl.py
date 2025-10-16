@@ -50,7 +50,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
     def setSong(self,song):
         pygame.mixer.music.unload()
         pygame.mixer.music.load(self.playlistPath + '/' + song)
-        pygame.mixer.music.play()
+        #pygame.mixer.music.play()
+        
         #self.playPause(True)
         #pygame.mixer.music.play()
         #self.playPause(True)
