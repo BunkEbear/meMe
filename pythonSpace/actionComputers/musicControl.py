@@ -22,6 +22,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
     def playPause(self, b = pygame.mixer.music.get_busy()):
         self.blinkNoti()
 
+        print(b)
+
         if (b):
             #self.song.pause()
             pygame.mixer.music.pause()
