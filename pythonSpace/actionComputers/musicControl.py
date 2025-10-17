@@ -127,7 +127,11 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
         #no overflow
-        print((len(self.playlists) * (self.playlistIndex // len(self.playlists))))
+        print(len(self.playlists))
+
+        print((self.playlistIndex // len(self.playlists)))
+
+
         self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // len(self.playlists)))
 
         #print(self.playlistIndex // len(self.playlists))
