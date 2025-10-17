@@ -88,6 +88,10 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         self.songOfPlaylist = self.songOfPlaylist - len(self.playlistContents) * (self.songOfPlaylist // len(self.playlistContents))
 
+        print('------')
+        print('songIndex: '+str(self.songOfPlaylist))
+        print('totalSongs'+str(len(self.playlistContents)))
+        print('------')
 
         #print(self.songOfPlaylist)
        
@@ -126,6 +130,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             self.playlistIndex -= 1
 
         self.songOfPlaylist = 0
+
         #no overflow
         print(len(self.playlists))
         #playlsit index being at 0 causes issues with floor div checking overflow
@@ -134,6 +139,16 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
         self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // len(self.playlists)))
+
+        #if self.playlistIndex ==0:
+        #    self.playlistIndex = len(self.playlists)-1
+#
+ #       elif self.playlistIndex == len(self.playlists)-1:
+  #          
+   #         self.playlistIndex = 
+
+
+
 
         #print(self.playlistIndex // len(self.playlists))
 
