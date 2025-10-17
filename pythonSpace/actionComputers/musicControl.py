@@ -99,31 +99,31 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
 
-def setPlaylist(self,playlist):
+    def setPlaylist(self,playlist):
 
-    self.playlistPath = self.playListsFolder + self.playlists[self.playlistIndex]
-    self.playlistContents = os.listdir(self.playlistPath)
-    print('playlist: ' + self.playlistPath)
-
-
+        self.playlistPath = self.playListsFolder + self.playlists[self.playlistIndex]
+        self.playlistContents = os.listdir(self.playlistPath)
+        print('playlist: ' + self.playlistPath)
 
 
-    def nextPrevPlaylist(self, npb):
-        self.blinkNoti()
 
-        if npb:
-            self.playlistIndex += 1
-            #print('next playlist')
-        else:
-            self.playlistIndex -= 1
 
-        self.songOfPlaylist = 0
+        def nextPrevPlaylist(self, npb):
+            self.blinkNoti()
 
-        #no overflow
-        self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // (len(self.playlists)-1)))
-        #something something len counts normally and -1 = the final python element something something syntactic sugar
+            if npb:
+                self.playlistIndex += 1
+                #print('next playlist')
+            else:
+                self.playlistIndex -= 1
 
-        self.setPlaylist(self.playlists[self.playlistIndex])
+            self.songOfPlaylist = 0
+
+            #no overflow
+            self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // (len(self.playlists)-1)))
+            #something something len counts normally and -1 = the final python element something something syntactic sugar
+
+            self.setPlaylist(self.playlists[self.playlistIndex])
 
 
 
@@ -171,7 +171,7 @@ def setPlaylist(self,playlist):
         #location of music
         self.playListsFolder = '/mnt/pier/music/'
 
-        print('??????')
+        #print('??????')
 
         self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if  (not(playlist.startswith('.') )) ] #parenthaces cant live wit hthm cant live with them cant live with them cant live with them
 
