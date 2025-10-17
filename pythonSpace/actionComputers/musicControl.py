@@ -89,8 +89,10 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
         
-
+        #hey man if it works it works
         self.songOfPlaylist = self.songOfPlaylist - (len(self.playlistContents)) * (self.songOfPlaylist // (len(self.playlistContents)-1))
+        #you either die of the black plauge man or your die of the black plauge
+
 
         print('------')
         print('songIndex: '+str(self.songOfPlaylist))
@@ -143,7 +145,10 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         print((self.playlistIndex // len(self.playlists)))
 
 
-        self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // len(self.playlists)))
+        #cause -1 loops around to the end in pyton
+        self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // (len(self.playlists)-1)))
+        #pyton
+        #blakc plauge
 
         #if self.playlistIndex ==0:
         #    self.playlistIndex = len(self.playlists)-1
