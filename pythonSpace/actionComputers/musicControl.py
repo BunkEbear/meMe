@@ -233,7 +233,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #lists of contents
         self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
 
-        self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if (os.path.isfile(playlist) and (not(playlist.startswith('.') )) ) ]
+        self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if ( (not((os.path.isfile(playlist)) ) and (not(playlist.startswith('.') )) ) ) ] #parenthaces cant live wit hthm cant live with them cant live with them cant live with them
 
         print('loaded playlists: ')
         print(self.playlists)
