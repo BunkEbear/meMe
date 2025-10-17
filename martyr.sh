@@ -2,8 +2,6 @@
 
 echo 'meStarted(martyd)'
 
-#make all files accesable
-sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
 #this foo was manually mounting
 #sudo mount /dev/mmcblk0p3 /mnt/pier
@@ -19,8 +17,14 @@ source /home/bunkebear/meMe/pyspective/bin/activate
 #go to directory for git purposes
 cd /home/bunkebear/meMe
 
+git stash
+
+git pull
+
+#make all files accesable
+sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 #start me
-	sudo -E /home/bunkebear/meMe/pythonSpace/me.py
+sudo -E /home/bunkebear/meMe/pythonSpace/me.py
 
 
 #bash is a meme wth
@@ -39,3 +43,5 @@ do
 done
 
 comment
+
+#cromment

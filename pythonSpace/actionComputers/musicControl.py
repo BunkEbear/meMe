@@ -8,7 +8,11 @@ import os
 
 from os.path import isfile, join
 
-pygame.mixer.init(44100, -16, 2, 4096)
+
+#pre innit
+pygame.mixer.pre_init(44100, -16, 2, 4096)
+#for fixing choppy audio by changing packet length
+pygame.mixer.init()
 
 
 class controlMusic(actionComputers.actionComputerSC.numPadFace):
