@@ -8,7 +8,7 @@ import os
 
 from os.path import isfile, join
 
-pygame.mixer.init()
+pygame.mixer.init(44100, -16, 2, 4096)
 
 
 class controlMusic(actionComputers.actionComputerSC.numPadFace):
