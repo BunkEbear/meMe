@@ -90,11 +90,12 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         
 
-        self.songOfPlaylist = self.songOfPlaylist - len(self.playlistContents) * (self.songOfPlaylist // len(self.playlistContents))
+        self.songOfPlaylist = self.songOfPlaylist - (len(self.playlistContents)) * (self.songOfPlaylist // (len(self.playlistContents)-1))
 
         print('------')
         print('songIndex: '+str(self.songOfPlaylist))
-        print('totalSongs'+str(len(self.playlistContents)))
+        print('totalSongs: '+str(len(self.playlistContents)))
+        print('eye: ' + str(self.songOfPlaylist // (len(self.playlistContents)-1)))
         print('------')
 
         #print(self.songOfPlaylist)
