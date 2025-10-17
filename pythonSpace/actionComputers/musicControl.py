@@ -109,6 +109,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.playlistContents = os.listdir(self.playlistPath)
         print('playlist: ' + self.playlistPath)
 
+        self.setSong(self.playlistContents[self.songOfPlaylist])
+
 
 
 
