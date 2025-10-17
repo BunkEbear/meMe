@@ -108,22 +108,22 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
 
-        def nextPrevPlaylist(self, npb):
-            self.blinkNoti()
+    def nextPrevPlaylist(self, npb):
+        self.blinkNoti()
 
-            if npb:
-                self.playlistIndex += 1
-                #print('next playlist')
-            else:
-                self.playlistIndex -= 1
+        if npb:
+            self.playlistIndex += 1
+            #print('next playlist')
+        else:
+            self.playlistIndex -= 1
 
-            self.songOfPlaylist = 0
+        self.songOfPlaylist = 0
 
-            #no overflow
-            self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // (len(self.playlists)-1)))
-            #something something len counts normally and -1 = the final python element something something syntactic sugar
+        #no overflow
+        self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // (len(self.playlists)-1)))
+        #something something len counts normally and -1 = the final python element something something syntactic sugar
 
-            self.setPlaylist(self.playlists[self.playlistIndex])
+        self.setPlaylist(self.playlists[self.playlistIndex])
 
 
 
