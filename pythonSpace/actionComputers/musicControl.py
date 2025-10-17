@@ -62,6 +62,10 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 ######################################################################################SONG CHANGE
     def nextPrevSong(self, npb):
         self.blinkNoti()
+
+        if len(self.playlistContents) == 1:
+            return
+
         #print('real')
 
         #print(npb)
