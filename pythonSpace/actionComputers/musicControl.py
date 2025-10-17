@@ -22,10 +22,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
     def playPause(self, b):
         self.blinkNoti()
 
+        #change playuing status
         self.playing = not(self.playing)
-        
 
-        #print(b)
 
         if not(b):
             #if true then play
@@ -60,18 +59,6 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         pygame.mixer.music.load(self.playlistPath + '/' + song)
         pygame.mixer.music.play()
         
-        #self.playPause(True)
-        #pygame.mixer.music.play()
-        #self.playPause(True)
-
-        #pygame.mixer.stop()        
-        #self.song = pygame.mixer.Sound(self.playlistPath + '/' + song)
-        #self.playPause(True) #true means pause
-        #self.song.play()
-#iAmGoingToGiveBirthToAHorse
-
-
-
 ######################################################################################SONG CHANGE
     def nextPrevSong(self, npb):
         self.blinkNoti()
@@ -97,79 +84,46 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         print('------')
         print('songIndex: '+str(self.songOfPlaylist))
         print('totalSongs: '+str(len(self.playlistContents)))
-        print('eye: ' + str(self.songOfPlaylist // (len(self.playlistContents)-1)))
+        #print('eye: ' + str(self.songOfPlaylist // (len(self.playlistContents)-1)))
         print('------')
 
-        #print(self.songOfPlaylist)
-       
-        #print('runarounds: ' + str(len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)))
-       # print('songIndexInPlaylist: '+str(self.songOfPlaylist))
 
        
         #fuck you
         self.setSong(self.playlistContents[self.songOfPlaylist])
 
-        #print(self.playlistContents)
-        #passes in a file object (not related to above comment)
-        #read it again (not related to above comment)
-        
-    
-
-
-
-
-
-
-
-
-
 
 
 
 ######################################################################################PLAYLIST CHANGE
+
+
+
+def setPlaylist(self,playlist):
+
+    self.playlistPath = self.playListsFolder + self.playlists[self.playlistIndex]
+    self.playlistContents = os.listdir(self.playlistPath)
+    print('playlist: ' + self.playlistPath)
+
+
+
+
     def nextPrevPlaylist(self, npb):
         self.blinkNoti()
 
         if npb:
             self.playlistIndex += 1
-            print('next playlist')
+            #print('next playlist')
         else:
             self.playlistIndex -= 1
 
         self.songOfPlaylist = 0
 
         #no overflow
-        print(len(self.playlists))
-        #playlsit index being at 0 causes issues with floor div checking overflow
-        #solution: skip playlist 0
-        print((self.playlistIndex // len(self.playlists)))
-
-
-        #cause -1 loops around to the end in pyton
         self.playlistIndex = self.playlistIndex - (len(self.playlists) * (self.playlistIndex // (len(self.playlists)-1)))
-        #pyton
-        #blakc plauge
+        #something something len counts normally and -1 = the final python element something something syntactic sugar
 
-        #if self.playlistIndex ==0:
-        #    self.playlistIndex = len(self.playlists)-1
-#
- #       elif self.playlistIndex == len(self.playlists)-1:
-  #          
-   #         self.playlistIndex = 
-
-
-
-
-        #print(self.playlistIndex // len(self.playlists))
-
-        print('playlist: ' + str(self.playlistIndex))
-
-        self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
-
-        self.playlistContents = os.listdir(self.playlistPath)
-
-        #self.playPause(True)
-
+        self.setPlaylist(self.playlists[self.playlistIndex])
 
 
 
@@ -205,46 +159,35 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         super().__init__(displayObject)
         
-
-        #self.playing = False
-        #i think pygame tracks this by default
-
         self.playing = False
-
-        #self.volume = 0.4
-        
-        #starting index of which song in the playlist
 
         #indexes of user
         self.songOfPlaylist = 0
         self.playlistIndex = 1
         #start at 1 because fuck you
 
-        #print('hello (balon boy)')
 
 
         #location of music
-        self.playListsFolder = '/mnt/pier/music'
-        self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
+        self.playListsFolder = '/mnt/pier/music/'
 
-
-        print(os.listdir(self.playListsFolder))
 
         #lists of contents
         self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
-
         self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if  (not(playlist.startswith('.') )) ] #parenthaces cant live wit hthm cant live with them cant live with them cant live with them
+
+
+
+
+        self.playlistPath = self.playListsFolder + self.playlists[self.playlistIndex]
+
+
 
 
         print('loaded playlists: ')
         print(self.playlists)
 
-        #print(self.playlists)
 
-
-
-        #set up initial playlist and volume
-        #self.song = pygame.mixer.Sound(self.playlistPath + '/' + self.playlistContents[self.playlistIndex])
 
         pygame.mixer.music.set_volume(0.1)
         self.setSong(self.playlistContents[self.songOfPlaylist])
