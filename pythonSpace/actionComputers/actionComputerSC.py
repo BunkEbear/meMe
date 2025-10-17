@@ -83,7 +83,7 @@ class numPadFace:
         #print(numPcoords)
         
     
-        if padToAction:
+        if not(padToAction == None):
             self.lastBtnPress = numPcoords
 
             print(padToAction)
