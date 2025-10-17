@@ -125,7 +125,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         else:
             self.playlistIndex -= 1
 
-
+        self.songOfPlaylist = 0
         #no overflow
         print(len(self.playlists))
         #playlsit index being at 0 causes issues with floor div checking overflow
