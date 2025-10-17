@@ -4,7 +4,12 @@ echo 'meStarted(martyd)'
 
 #make all files accesable
 sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
-sudo mount /dev/mmcblk0p3 /mnt/pier
+
+#this foo was manually mounting
+#sudo mount /dev/mmcblk0p3 /mnt/pier
+#mount wario more like
+
+#sudo chmod 777 /mnt/pier/music
 
 
 #load python env
