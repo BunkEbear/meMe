@@ -128,7 +128,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         #no overflow
         print(len(self.playlists))
-
+        #playlsit index being at 0 causes issues with floor div checking overflow
+        #solution: skip playlist 0
         print((self.playlistIndex // len(self.playlists)))
 
 
@@ -189,7 +190,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         #indexes of user
         self.songOfPlaylist = 0
-        self.playlistIndex = 0
+        self.playlistIndex = 1
+        #start at 1 because fuck you
 
         #print('hello (balon boy)')
 
