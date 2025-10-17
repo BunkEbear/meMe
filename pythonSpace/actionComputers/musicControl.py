@@ -163,7 +163,7 @@ def setPlaylist(self,playlist):
 
         #indexes of user
         self.songOfPlaylist = 0
-        self.playlistIndex = 1
+        self.playlistIndex = 0
         #start at 1 because fuck you
 
 
@@ -187,6 +187,8 @@ def setPlaylist(self,playlist):
 
         print('loaded playlists: ')
         print(self.playlists)
+
+        self.setPlaylist(self.playlists[self.playlistIndex])
 
 
 
