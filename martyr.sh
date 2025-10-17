@@ -17,9 +17,11 @@ source /home/bunkebear/meMe/pyspective/bin/activate
 #go to directory for git purposes
 cd /home/bunkebear/meMe
 
-git stash
 
-git pull
+#stop trying to do shit before the modem comes online
+#git stash
+
+#git pull
 
 #make all files accesable
 sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
