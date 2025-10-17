@@ -146,10 +146,12 @@ class numPadFace:
         self.binDispCommand(0)
         
 
-    def half(self,b):
+    def half(self,t, b):
             
             if b:
                 self.binDispCommand(12)
+                self.binDispCommand(t)
 
             else:
                 self.binDispCommand(3)
+                self.binDispCommand(t)
