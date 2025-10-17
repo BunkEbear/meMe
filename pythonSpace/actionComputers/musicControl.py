@@ -31,10 +31,12 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             #if true then play
             #self.song.pause()
             pygame.mixer.music.pause()
+            self.half(False)
 
         else:
             pygame.mixer.music.unpause()
             print('playing:' + self.playlistContents[self.songOfPlaylist])
+            self.half(True)
             
             #unpause
         
@@ -96,7 +98,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #print(self.songOfPlaylist)
        
         #print('runarounds: ' + str(len(self.playlistContents) * self.songOfPlaylist // len(self.playlistContents)))
-        print('songIndexInPlaylist: '+str(self.songOfPlaylist))
+       # print('songIndexInPlaylist: '+str(self.songOfPlaylist))
 
        
         #fuck you
@@ -156,7 +158,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
 
-    
+
+        #self.playPause(True)
 
 
 
