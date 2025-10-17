@@ -129,6 +129,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         #no overflow
         self.playlistIndex = self.playlistIndex - len(self.playlists) * (self.playlistIndex // len(self.playlists))
 
+        print(self.playlistIndex // len(self.playlists))
+
         print('playlist: ' + str(self.playlistIndex))
 
         self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
