@@ -150,8 +150,8 @@ class numPadFace:
             
             if b:
                 self.binDispCommand(12)
-                self.binDispCommand(t)
+                sleep(t)
 
             else:
                 self.binDispCommand(3)
-                self.binDispCommand(t)
+                sleep(t)
