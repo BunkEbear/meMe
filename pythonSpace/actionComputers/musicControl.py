@@ -228,7 +228,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
 
 
-        print(os.list(self.playListsFolder))
+        print(os.listdir(self.playListsFolder))
 
         #lists of contents
         self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
