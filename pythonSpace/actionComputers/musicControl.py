@@ -32,11 +32,13 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
             #self.song.pause()
             pygame.mixer.music.pause()
             self.half(False)
+            self.blinkNoti()
 
         else:
             pygame.mixer.music.unpause()
             print('playing:' + self.playlistContents[self.songOfPlaylist])
             self.half(True)
+            self.blinkNoti()
             
             #unpause
         
