@@ -231,6 +231,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.playlistContents = os.listdir(self.playlistPath)
         self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if os.path.isfile(playlist)]
 
+        print('loaded playlists: ' + self.playlists)
+
         #print(self.playlists)
 
 
