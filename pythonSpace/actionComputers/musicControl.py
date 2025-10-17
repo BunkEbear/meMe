@@ -166,6 +166,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         self.playlistPath = self.playListsFolder + '/playlist' + str(self.playlistIndex)
 
+        self.playlistContents = os.listdir(self.playlistPath)
 
         #self.playPause(True)
 
@@ -231,7 +232,8 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.playlistContents = os.listdir(self.playlistPath)
         self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if os.path.isfile(playlist)]
 
-        print('loaded playlists: ' + self.playlists)
+        print('loaded playlists: ')
+        print(self.playlists)
 
         #print(self.playlists)
 
