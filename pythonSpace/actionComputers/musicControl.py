@@ -171,6 +171,7 @@ def setPlaylist(self,playlist):
         #location of music
         self.playListsFolder = '/mnt/pier/music/'
 
+        print('??????')
 
         #lists of contents
         self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
