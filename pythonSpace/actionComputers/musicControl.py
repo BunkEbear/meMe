@@ -230,6 +230,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         #lists of contents
         self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
+        
         self.playlists = [playlist for playlist in os.listdir(self.playListsFolder) if os.path.isfile(playlist)]
 
         print('loaded playlists: ')
