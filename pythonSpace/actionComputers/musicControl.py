@@ -60,8 +60,10 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
     def setSong(self,song):
         pygame.mixer.music.unload()
+        print('playing: ' + song)
         pygame.mixer.music.load(self.playlistPath + '/' + song)
         pygame.mixer.music.play()
+
         
 ######################################################################################SONG CHANGE
     def nextPrevSong(self, npb):

@@ -5,6 +5,10 @@ TEST2
 
 
 
+mcli -m 0 --messaging-list-smssudo bash -c 'for id in $(mmcli -m 0 --messaging-list-sms | awk "/SMS/{print \$1}"); do mmcli -m 0 --messaging-delete-sms=$id; done'
+
+
+
 
 UUID=EFFD-76D4   /mnt/pier  exfat  defaults,uid=1000,gid=1000,umask=002  0  0
 
@@ -13,22 +17,15 @@ PYTHON M added bc of pip instalation
 
 
 
-python -m yt_dlp -x --audio-format vorbis --audio-quality 9 "https://www.youtube.com/watch?v=4J3zvFT0CAA"
+python -m yt_dlp -x --audio-format vorbis --audio-quality 9 "https://www.youtube.com/watch?v=cnW6UTt4tyQ"
 
 
 hauseMd
 
 macOS (homebew + mogged)
-yt-dlp -x --audio-format vorbis --audio-quality 9 "https://www.youtube.com/watch?v=OoA0cTC228M"
+yt-dlp -x --audio-format vorbis --audio-quality 9 "https://www.youtube.com/watch?v=GyWmZHus4ZY"
 
 
 for f in *.mp3; do ffmpeg -i "$f" -c:a libvorbis "${f%.mp3}.ogg"; done
 
 
-converts all vorbis to opus
-
-mkdir -p ogg_out
-find . -maxdepth 1 -type f \( -iname "*.mp3" -o -iname "*.wav" -o -iname "*.flac" -o -iname "*.m4a" -o -iname "*.ogg" \) -print0 |
-while IFS= read -r -d '' f; do
-  ffmpeg -y -i "$f" -vn -c:a libvorbis -q:a 5 -ar 44100 -ac 2 -map_metadata -1 "ogg_out/$(basename "${f%.*}").ogg"
-done

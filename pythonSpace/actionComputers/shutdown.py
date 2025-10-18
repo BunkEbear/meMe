@@ -8,6 +8,8 @@ from actionComputers.actionComputerSC import numPadFace
 
 import subprocess
 
+#shuts the program down
+
 class shutDown(numPadFace):
 
     def numPadCommand(self,numPcoords):
