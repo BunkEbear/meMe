@@ -24,18 +24,19 @@ cd /home/bunkebear/meMe
 #git pull
 
 #make all files accesable
-sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
+#sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 #start me
-sudo -E /home/bunkebear/meMe/pythonSpace/me.py
+#sudo -E /home/bunkebear/meMe/pythonSpace/me.py
 
 
 #bash is a meme wth
 
-<<comment
+#<<comment
 
-while true
-do
-	#start me
+while systemctl is-system-running | grep -q "running"; do
+	
+	sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
+
 	sudo -E /home/bunkebear/meMe/pythonSpace/me.py
 
 	git stash
@@ -44,6 +45,6 @@ do
 
 done
 
-comment
+echo "mended (meEnded)"
 
-#cromment
+#comment
