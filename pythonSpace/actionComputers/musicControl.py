@@ -64,6 +64,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         pygame.mixer.music.load(self.playlistPath + '/' + song)
         pygame.mixer.music.play()
 
+
         
 ######################################################################################SONG CHANGE
     def nextPrevSong(self, npb):
@@ -111,11 +112,21 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
     def setPlaylist(self,playlist):
 
+
+        
         self.playlistPath = self.playListsFolder + self.playlists[self.playlistIndex]
-        self.playlistContents = os.listdir(self.playlistPath)
+        
+        #only non hidden files
+        #self.playlistContents = os.listdir(self.playlistPath)
+        self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
+
+
         print('playlist: ' + self.playlistPath)
 
         self.setSong(self.playlistContents[self.songOfPlaylist])
+
+
+
 
 
 
@@ -189,13 +200,11 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
         self.playlistPath = self.playListsFolder + self.playlists[self.playlistIndex]
 
-
         #lists of contents
-        self.playlistContents = [music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
+        self.playlistContents = None
+        #[music for music in os.listdir(self.playlistPath) if not(music.startswith('.'))]
         
-
-
-
+        #self.setPlaylist(self.playlists[self.playlistIndex])
 
 
 
@@ -206,14 +215,19 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         print('loaded playlists: ')
         print(self.playlists)
 
-        self.setPlaylist(self.playlists[self.playlistIndex])
-
 
 
         pygame.mixer.music.set_volume(0.1)
-        self.setSong(self.playlistContents[self.songOfPlaylist])
+        self.setPlaylist(self.playlists[self.playlistIndex])
+        #self.setSong(self.playlistContents[self.songOfPlaylist])
         self.playPause(False)
         self.playing = False
+
+
+
+
+
+
 
 
 
