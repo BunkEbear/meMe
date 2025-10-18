@@ -33,17 +33,19 @@ cd /home/bunkebear/meMe
 
 #<<comment
 
-while systemctl is-system-running | grep -q "running"; do
-	
-	sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
+sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
-	sudo -E /home/bunkebear/meMe/pythonSpace/me.py
+sudo -E /home/bunkebear/meMe/pythonSpace/me.py
 
-	git stash
-
-	git pull
-
-done
+#while systemctl is-system-running | grep -q "running"; do
+	#
+#
+#
+#	git stash
+#
+#	git pull
+#
+#done
 
 echo "mended (meEnded)"
 
