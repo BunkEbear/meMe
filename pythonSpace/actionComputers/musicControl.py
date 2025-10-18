@@ -211,6 +211,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         pygame.mixer.music.set_volume(0.1)
         self.setSong(self.playlistContents[self.songOfPlaylist])
         self.playPause(False)
+        self.playing = False
 
 
 
