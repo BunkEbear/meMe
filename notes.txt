@@ -5,7 +5,9 @@ TEST2
 
 
 
-mcli -m 0 --messaging-list-smssudo bash -c 'for id in $(mmcli -m 0 --messaging-list-sms | awk "/SMS/{print \$1}"); do mmcli -m 0 --messaging-delete-sms=$id; done'
+#le chat ge pe te
+SMS_LIST=$(sudo mmcli -m 0 --messaging-list-sms) && echo "$SMS_LIST" && echo "$SMS_LIST" | awk '/SMS/ {print $1}' | while read id; do sudo mmcli -m 0 --messaging-delete-sms=$id; done
+
 
 
 
