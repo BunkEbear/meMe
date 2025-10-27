@@ -72,18 +72,18 @@ class Modem(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.M
 
 class Messaging(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Modem.Messaging'):
 
-    @dbus_method(out_signature='ao')
+    @dbus_method('', 'ao')
     def List(self) -> list:
         """List all SMS message object paths."""
         raise NotImplementedError
 
-    @dbus_method(in_signature='a{sv}', out_signature='o')
+    @dbus_method('a{sv}', 'o')
     def Create(self, properties: dict) -> str:
         """Create a new SMS message with the given properties."""
         raise NotImplementedError
 
 
-    @dbus_method(in_signature='o')
+    @dbus_method('o', '')
     def Delete(self, path: str) -> None:
         """Delete an existing SMS message by its object path."""
         raise NotImplementedError
