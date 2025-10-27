@@ -101,6 +101,9 @@ inputDevs = [NUMPAD,MODEM]
 for i in range(len(inputDevs)):
     inputDevs[i].setIndex(i)
     #holy runtime
+    #dw its slightly more dynamic
+    #I am the angry pumpkin
+
 
 #in this case input means thing its getting sensory data from or just places its checking to feel an update
 #haha this looks like penis
