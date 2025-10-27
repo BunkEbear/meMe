@@ -142,7 +142,7 @@ class currentModemCtrl(inputSuperclass):
         else:
 
             #here is where i figured out modem manager stores messgaes in reverse order
-            print (self.messages[0])
+            #print (self.messages[0])
             #cause i did not read the documentation
 
             #holy how does this still point to self.messages
