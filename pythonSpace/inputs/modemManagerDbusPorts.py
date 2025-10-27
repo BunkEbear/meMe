@@ -126,6 +126,8 @@ class currentModemCtrl:
         messages = None
 
 
+        self.modemDbusPath = None
+
 
         # Use the **system** bus (ModemManager lives here)
         sdbus.set_default_bus(sdbus.sd_bus_open_system())
@@ -148,7 +150,7 @@ class currentModemCtrl:
         self.modemPort.Enable(True)
 
 
-        self.messagingPort = messaging(service_name='org.freedesktop.ModemManager1', object_path=self.modemPort.object_path)
+        self.messagingPort = messaging(service_name='org.freedesktop.ModemManager1', object_path=self.modemDbusPath)
 
         #selected Message
         self.smsPort = None
@@ -161,10 +163,9 @@ class currentModemCtrl:
 
     def getModem(self):
 
-        modemPath = None
         objects = None
 
-        while(not(modemPath)):
+        while(not(self.modemDbusPath)):
 
             objects = self.objectManagerPort.get_managed_objects()
 
@@ -172,7 +173,7 @@ class currentModemCtrl:
 
             if any('org.freedesktop.ModemManager1.Modem' in ifaces for path, ifaces in objects.items()) :
                 
-                modemPath = next(path for path, ifaces in objects.items() if 'org.freedesktop.ModemManager1.Modem' in ifaces)
+                self.modemDbusPath = next(path for path, ifaces in objects.items() if 'org.freedesktop.ModemManager1.Modem' in ifaces)
 
 
             sleep(1)
@@ -181,7 +182,7 @@ class currentModemCtrl:
 
 
         #we only need to wrangle the modem path out of the mouth of satan once bc we only have one modem, everhything ehich does nto ecplciiylu need ity doesnt need it and even if it did we have it now
-        self.modemPort = modem(service_name='org.freedesktop.ModemManager1', object_path=modemPath)
+        self.modemPort = modem(service_name='org.freedesktop.ModemManager1', object_path=self.modemDbusPath)
 
 
 
