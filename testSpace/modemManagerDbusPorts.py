@@ -7,7 +7,7 @@ import sdbus
 
 
 #from sdbus import the simple dbus interface
-from sdbus import DbusInterfaceCommon, dbus_method, dbus_property_async, DbusObjectManagerInterface
+from sdbus import DbusInterfaceCommon, dbus_method, dbus_property, DbusObjectManagerInterface
 #these are the imports for each decorator
 
 
@@ -59,7 +59,7 @@ class Modem(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.M
         raise NotImplementedError
 
 
-    @dbus_property_async('(ub)', property_name='SignalQuality')
+    @dbus_property('(ub)', property_name='SignalQuality')
     def signal_quality(self) -> tuple:
         """Get signal quality as (quality_percentage, recent_flag)"""
         raise NotImplementedError
