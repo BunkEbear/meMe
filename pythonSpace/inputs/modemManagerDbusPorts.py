@@ -131,9 +131,13 @@ class currentModemCtrl(inputSuperclass):
 
         #oldMessages = self.messages
 
+        
+
         #to do with the topic of message updates:
         if len(self.messages) == 0:
             print('no Messages')
+            self.messages = self.messagingPort.List()
+            #the above must be found once every direction of this loop
 
         else:
 
