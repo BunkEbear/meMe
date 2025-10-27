@@ -141,7 +141,7 @@ class currentModemCtrl(inputSuperclass):
 
         else:
 
-            print (self.messages[-1])
+            print (self.messages[0])
 
             oldHighInd = self.messages[-1].split('/')[-1]
 
