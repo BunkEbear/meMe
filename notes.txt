@@ -9,7 +9,13 @@ TEST2
 SMS_LIST=$(sudo mmcli -m 0 --messaging-list-sms) && echo "$SMS_LIST" && echo "$SMS_LIST" | awk '/SMS/ {print $1}' | while read id; do sudo mmcli -m 0 --messaging-delete-sms=$id; done
 
 
-
+mmcli -m 0 --messaging-list-sms \
+| grep -oE '/org/freedesktop/ModemManager1/SMS/[0-9]+' \
+| while read -r msg; do
+    echo "=== $msg ==="
+    mmcli -s "$msg" -K
+    echo
+done > allMessages.txt
 
 
 UUID=EFFD-76D4   /mnt/pier  exfat  defaults,uid=1000,gid=1000,umask=002  0  0
@@ -32,3 +38,7 @@ for f in *.mp3; do ffmpeg -i "$f" -c:a libvorbis "${f%.mp3}.ogg"; done
 
 
 mmcli -m 0 --messaging-list-sms
+
+
+
+mmcli -m 0 --messaging-
