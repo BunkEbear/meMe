@@ -5,6 +5,11 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
+
+
+#returns a tuple of coords for the button pad press
+
+
 class numPadIn(inputSuperclass):
 
     def __init__(self):

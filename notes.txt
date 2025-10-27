@@ -31,3 +31,4 @@ yt-dlp -x --audio-format vorbis --audio-quality 9 "https://www.youtube.com/watch
 for f in *.mp3; do ffmpeg -i "$f" -c:a libvorbis "${f%.mp3}.ogg"; done
 
 
+mmcli -m 0 --messaging-list-sms

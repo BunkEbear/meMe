@@ -63,6 +63,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         print('playing: ' + song)
         pygame.mixer.music.load(self.playlistPath + '/' + song)
         pygame.mixer.music.play()
+        self.playPause = True
 
 
         

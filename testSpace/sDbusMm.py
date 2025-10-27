@@ -1,50 +1,76 @@
-#!/usr/bin/env python3
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
+# Copyright (C) 2020-2022 igo95862
+
+# This file is part of python-sdbus
+
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
+from __future__ import annotations
+
+from sdbus import (
+    DbusInterfaceCommonAsync,
+    dbus_method_async,
+    dbus_property_async,
+    dbus_signal_async,
+)
+
+# This is file only contains interface definition for easy import
+# in server and client files
 
 
-# pip install sdbus
-import sdbus
-from sdbus import DbusInterfaceCommon, dbus_method
+#given interface 
+class ExampleInterface(
+    DbusInterfaceCommonAsync,
+    interface_name='org.example.interface'
+):
+    
 
-# Use the **system** bus (ModemManager lives here)
-sdbus.set_default_bus(sdbus.sd_bus_open_system())
 
-SERVICE = 'org.freedesktop.ModemManager1'
-ROOT = '/org/freedesktop/ModemManager1'
 
-# --- tiny interface stubs we’ll call over D-Bus ---
+    @dbus_method_async(
+        input_signature='s',
+        result_signature='s',
+    )
 
-class ObjectManager(DbusInterfaceCommon,
-                    interface_name='org.freedesktop.DBus.ObjectManager'):
-    @dbus_method(result_signature='a{oa{sa{sv}}}')
-    def GetManagedObjects(self):  # returns {object_path: {iface: {prop: value}}}
+
+
+
+    async def upper(self, string: str) -> str:
+        return string.upper()
+    
+
+
+
+    @dbus_property_async(
+        property_signature='s',
+    )
+
+
+
+    def hello_world(self) -> str:
+        return 'Hello, World!'
+
+
+
+
+    @dbus_signal_async(
+        signal_signature='i'
+    )
+
+
+
+    def clock(self) -> int:
         raise NotImplementedError
-
-class Modem(DbusInterfaceCommon,
-            interface_name='org.freedesktop.ModemManager1.Modem'):
-    @dbus_method('b')  # input: boolean
-    def Enable(self, enable: bool) -> None:
-        raise NotImplementedError
-
-# (optional) USSD example:
-class Ussd(DbusInterfaceCommon,
-           interface_name='org.freedesktop.ModemManager1.Modem.Modem3gpp.Ussd'):
-    @dbus_method('s', 's')  # input: string, output: string
-    def Initiate(self, command: str) -> str:
-        raise NotImplementedError
-
-# --- use it ---
-
-om = ObjectManager(service_name=SERVICE, object_path=ROOT)
-objs = om.GetManagedObjects()
-
-# grab the first modem object path
-modem_path = next(path for path, ifaces in objs.items()
-                  if 'org.freedesktop.ModemManager1.Modem' in ifaces)
-
-# enable the modem
-m = Modem(service_name=SERVICE, object_path=modem_path)
-m.Enable(True)
-
-# (optional) send a USSD code and print the network’s reply
-ussd = Ussd(service_name=SERVICE, object_path=modem_path)
-print(ussd.Initiate('*#06#'))
+    

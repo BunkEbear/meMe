@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-import binDisp
+import outputs.binDisp as binDisp
 
 from time import sleep
 import subprocess
 
 
-
+#display objects get assigned in here so we are chillin
 
 
 
@@ -53,6 +53,12 @@ def setUp():
 
 
 
+
+
+
+
+
+
 setUp()
 
 
@@ -84,12 +90,17 @@ MUSIC = mc.controlMusic(DISPLAY)
 
 
 
+
+
+#here is where the heirarchy of checking in on things and displaying them is decided
 #SET INPUT DEVICE INDEXS
 inputDevs = [NUMPAD]
 #add fifo input? or dbus input?
 for i in range(len(inputDevs)):
     inputDevs[i].setIndex(i)
 
+#in this case input means thing its getting sensory data from or just places its checking to feel an update
+#haha this looks like penis
 
 #SET INPUT COMPUTERS INDEXS
 faces = [NUMIN,SHUTDOWN,MUSIC]
@@ -108,28 +119,37 @@ currFace = 0
 
 while True:
 
+
+
+    #GET INPUTS
+
     inputComms = []
     #array of input device inputs taken from the array of input devices
     #defined by length of inputDevs
 
+    #get all the updates
     for i in range(len(inputDevs)):
         #get the report at the ask
         inputComms.append(inputDevs[i].report())
 
-        cranityCheck = inputDevs[i].report()
-        
+        #cranityCheck = inputDevs[i].report()
+
+
+#SEND TO OUTPUTS SPECIFICALLY
+
         #if cranityCheck:
             #print(cranityCheck)
-
     if (inputComms[0]):
-        #print (inputComms[0])
-        #print (inputComms[0])
-        
 
+        #every face has numpad inputs so we feed it into the current face no matter what
         switchFace = faces[currFace].numPadCommand(inputComms[0])
         
-        #print(switchFace)
 
+
+
+
+        #print(switchFace)
+        #change face case
         if not(switchFace == currFace):
 
             print('switchFace' + str(switchFace))
@@ -140,17 +160,13 @@ while True:
                 print('switchedFace')
 
                 currFace = switchFace
-            
-            #except:
+
             #    print('idk some error, probably out of index shithead')
-    
-
-
-
-
     #here you are fucker, time to die
-
+#i was very mad at a bug
     
+
+
 
 
 
