@@ -27,16 +27,37 @@
 
 import spidev, time, sys
 import RPi.GPIO as GPIO
-from PIL import Image
-
+#from PIL import Image
+import numpy as np
+import cv2 as cv
 
 
 class oledDisp:
 
 
 
+    def displayText(self, header, body):
+
+        slate = self.blankImage.copy()
+
+        cv.rectangle(slate, (0, 0), (127, 10), 255, -1)
+
+        # Add header text on the white rectangle (black text)
+        cv.putText(slate, header, (2, 8), cv.FONT_HERSHEY_SIMPLEX, 0.3, 0, 1)
+        
+        # Add body text below the rectangle (white text on black background)
+        cv.putText(slate, body, (2, 25), cv.FONT_HERSHEY_SIMPLEX, 0.4, 255, 1)
+        
 
 
+
+        None
+        #call display image
+    
+
+
+
+    
 
 
 
@@ -48,6 +69,7 @@ class oledDisp:
 
     def __init__(self):
 
+        self.blankImage = np.zeros((128,64), np.uint8)
 
         self.imageState = None
 
@@ -77,6 +99,7 @@ class oledDisp:
 
 
 
+        self.displayImage(self.blankImage)
 
 
 
@@ -86,40 +109,64 @@ class oledDisp:
 
 
 
-#fonction d'affichage d'un image PIL
-
-#idk what that frenchman was speaking of, but this now takes in cv2 numpy image arrays
-def display_img(self,image):
-    data_slice=[[],[],[],[],[],[],[],[]]
-    GPIO.output(self.A0, 0)
-    for p in range (0,8): #l'image est découpée en 8 tranches horizontales de 8 pixels
-        data_set = []
-        for c in range (0,128): #chaque tranche fait 8x128 px
-            by = 0x00
-            for b in range (0,8):
-                
-                #original code intended for PIL object
-                #by = by>>1 | (image.getpixel((c, p*8+b))& 0x80)
 
 
-                #GPT insert intended for OPENCV image object (numpy array)
-                by = by>>1 | (image[p*8+b, c] & 0x80)
 
+    #fonction d'affichage d'un image PIL
 
-            data_set.append(by)
-        data_slice[p]=data_set
-    self.spi.xfer([0xAF]) #active l'afficheur (0xAE pour l'éteindre)
-    for p in range (0,8):
+    #idk what that frenchman was speaking of, but this now takes in cv2 numpy image arrays
+    def displayImage(self,image):
+
+        data_slice=[[],[],[],[],[],[],[],[]]
+
         GPIO.output(self.A0, 0)
-        self.spi.xfer([0xB0+p, 0x02, 0x10]) #initialise l'adresse des colonnes
-        GPIO.output(self.A0, 1)
-        self.spi.xfer(data_slice[p]) #transfer 1 tranche de 128x8 pixels
+
+        for p in range (0,8): #l'image est découpée en 8 tranches horizontales de 8 pixels
+            data_set = []
+            for c in range (0,128): #chaque tranche fait 8x128 px
+                by = 0x00
+                for b in range (0,8):
+                    
+                    #original code intended for PIL object
+                    #by = by>>1 | (image.getpixel((c, p*8+b))& 0x80)
+
+
+                    #GPT insert intended for OPENCV image object (numpy array)
+                    by = by>>1 | (image[p*8+b, c] & 0x80)
+
+
+                data_set.append(by)
+            data_slice[p]=data_set
+        self.spi.xfer([0xAF]) #active l'afficheur (0xAE pour l'éteindre)
+        for p in range (0,8):
+            GPIO.output(self.A0, 0)
+            self.spi.xfer([0xB0+p, 0x02, 0x10]) #initialise l'adresse des colonnes
+            GPIO.output(self.A0, 1)
+            self.spi.xfer(data_slice[p]) #transfer 1 tranche de 128x8 pixels
+
+        
+
+        self.imageState = image
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 
 
 try:
@@ -138,6 +185,6 @@ except:
 
 spi.close()
 GPIO.cleanup()
-
+"""
 
 

@@ -7,7 +7,7 @@ import sdbus
 
 
 #from sdbus import the simple dbus interface
-from sdbus import DbusInterfaceCommon, dbus_method, dbus_property_async
+from sdbus import DbusInterfaceCommon, dbus_method, dbus_property_async, DbusObjectManagerInterface
 #these are the imports for each decorator
 
 
@@ -20,17 +20,17 @@ from sdbus import DbusInterfaceCommon, dbus_method, dbus_property_async
 
 
 #object manager 
-class ObjectManager(DbusInterfaceCommon, interface_name='org.freedesktop.DBus.ObjectManager'):
-    
+#class ObjectManager(DbusInterfaceCommon, interface_name='org.freedesktop.DBus.ObjectManager'):
+##    
+#
 
-
-                                #stuff to define how the message is shaped
-    @dbus_method(result_signature='a{oa{sa{sv}}}')
-    # a decorator for the upcoming function
-
-    def GetManagedObjects(self):  # returns {object_path: {iface: {prop: value}}}
-        raise NotImplementedError
-        #we do this 
+#                                #stuff to define how the message is shaped
+#    @dbus_method(result_signature='a{oa{sa{sv}}}')
+#    # a decorator for the upcoming function
+#
+#    def GetManagedObjects(self):  # returns {object_path: {iface: {prop: value}}}
+#        raise NotImplementedError
+#        #we do this 
 
 
 
@@ -130,8 +130,14 @@ class currentModemCtrl:
 
 
         #instance of our little defined port to the dbus object manager
-        self.om = ObjectManager(service_name='org.freedesktop.ModemManager1', object_path='/org/freedesktop/ModemManager1')
+        #self.om = ObjectManager(service_name='org.freedesktop.ModemManager1', object_path='/org/freedesktop/ModemManager1')
 
+
+        # Use the built-in ObjectManager interface
+        self.om = DbusObjectManagerInterface(
+            service_name='org.freedesktop.ModemManager1',
+            object_path='/org/freedesktop/ModemManager1',
+        )
 
         #place holder for 
         self.objs = None
@@ -154,7 +160,7 @@ class currentModemCtrl:
 
         while(not(modem_path)):
 
-            self.objs = self.om.GetManagedObjects()
+            self.objs = self.om.get_managed_objects()
 
             print('lookin for Modem')
 
