@@ -37,7 +37,7 @@ cd /home/bunkebear/meMe
 while systemctl is-system-running | grep -q "running"; do
 	sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
-	sudo -E /home/bunkebear/meMe/pythonSpace/me.py
+	sudo -E /home/bunkebear/meMe/pyspective/bin/python3 /home/bunkebear/meMe/pythonSpace/me.py
 #
 #
 	git stash
