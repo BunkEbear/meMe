@@ -146,7 +146,7 @@ class currentModemCtrl(inputSuperclass):
             #cause i did not read the documentation
 
             #holy how does this still point to self.messages
-            oldHighInd = int(self.messages.copy[0].split('/')[-1])
+            oldHighInd = int((self.messages.copy)[0].split('/')[-1])
 
             #new messages:
             self.messages = self.messagingPort.List()
@@ -156,7 +156,7 @@ class currentModemCtrl(inputSuperclass):
                 #look here at the index not the len cause we can delete messages in the middle
             if newHighInd > oldHighInd:
 
-                currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=self.messages[-1])
+                currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=self.messages[0])
 
                 print(currMessage.text)
                 print('hiiii')
