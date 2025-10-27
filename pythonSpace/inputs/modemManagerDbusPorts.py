@@ -116,7 +116,7 @@ class currentModemCtrl(inputSuperclass):
 
     def report(self):
 
-         print(self.messagingPort.List)
+         print(self.messagingPort.List())
 
 
 #modem_path = '/org/freedesktop/ModemManager1/Modems/0'
