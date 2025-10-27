@@ -128,7 +128,7 @@ class currentModemCtrl(inputSuperclass):
 
         try:
             #look here at the index not the len cause we can delete messages in the middle
-            if self.messages[-1].split('/')[-1] > oldMessages[-1].split('/')[-1]:
+            if int(self.messages[-1].split('/')[-1]) > int(oldMessages[-1].split('/')[-1]):
 
                 currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=self.messages[-1])
 
