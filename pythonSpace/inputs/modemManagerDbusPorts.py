@@ -124,15 +124,20 @@ class currentModemCtrl(inputSuperclass):
         #new messages:
         self.messages = self.messagingPort.List()
 
-        if self.messages[-1].split('/')[-1] > oldMessages[-1].split('/')[-1]:
+        try:
+            #look here at the index not the len cause we can delete messages in the middle
+            if self.messages[-1].split('/')[-1] > oldMessages[-1].split('/')[-1]:
 
-            currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=oldMessages[-1])
+                currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=oldMessages[-1])
 
-            print(currMessage.text)
+                print(currMessage.text)
 
-            #stuff from message object function get it
-            return[currMessage.number, currMessage.text]
+                #stuff from message object function get it
+                return[currMessage.number, currMessage.text]
 
+        except:
+            #index error
+            print('noMessages')
 
         return None
 
