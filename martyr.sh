@@ -37,6 +37,8 @@ cd /home/bunkebear/meMe
 	# i mean we do this to give the tiem for the sustem to ge thte running
 	sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
+	#testerino
+
 	sudo -E /home/bunkebear/meMe/pyspective/bin/python3 /home/bunkebear/meMe/pythonSpace/me.py
 
 while systemctl is-system-running | grep -q "running"; do
