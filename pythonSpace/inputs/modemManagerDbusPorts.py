@@ -102,7 +102,15 @@ class sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms
 
 
 
-
+    @dbus_property('s', property_name='Text')
+    def text(self) -> str:
+        """Get the message text content."""
+        raise NotImplementedError
+    
+    @dbus_property('s', property_name='Number') 
+    def number(self) -> str:
+        """Get the sender/recipient phone number."""
+        raise NotImplementedError
 
 
 
