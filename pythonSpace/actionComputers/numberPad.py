@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from actionComputers.actionComputerSC import numPadFace
+from godComplexActionSeperators.actionComputerSC import numPadFace
 
 import subprocess
 
@@ -74,9 +74,9 @@ class numberPadNumbers(numPadFace):
 
 
 
-    def __init__(self, displayObject):
+    def __init__(self, displayObject,spiDisplay):
 
-        super().__init__(displayObject)
+        super().__init__(displayObject,spiDisplay)
 
        #self.display = displayObject
         

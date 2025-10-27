@@ -28,7 +28,9 @@
 import spidev, time, sys
 import RPi.GPIO as GPIO
 #from PIL import Image
+#needs numpy for image manipulation
 import numpy as np
+#fuck you
 import cv2 as cv
 
 

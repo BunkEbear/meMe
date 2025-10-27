@@ -31,10 +31,17 @@ class numPadFace:
 
 
 
-    def __init__(self, displayObject):
+    def __init__(self, displayObject, spiDisplay):
 
         self.faceIndex = None
-    
+
+        #take of which key of how many times we are pressed
+        self.take = 0
+        
+        self.lastReelPress = [None,None]
+
+
+
         self.duoLingo = [
             [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
             [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
@@ -42,7 +49,13 @@ class numPadFace:
             [lambda: self.backToNumPad(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()]
             ]
         
+
+
         self.display = displayObject
+
+        #spi oled display objects with display mutators inside
+        self.oledDisplay = spiDisplay
+        #there is food inside of the outlet
 
         self.lastBtnPress = [None,None]
 
@@ -58,6 +71,7 @@ class numPadFace:
     #here is where the numpad coords arive
     def numPadCommand(self,numPcoords):
 
+
         padToAction = None
         #print(numPcoords)
 
@@ -66,6 +80,7 @@ class numPadFace:
             
 
             return self.faceIndex
+        #anti spam cehcker
 
 
         else:
@@ -73,6 +88,8 @@ class numPadFace:
                 self.lastBtnPress = numPcoords
                 return self.faceIndex
             
+
+            #here is where it meets the duolingo tensor
             padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
 
             #print('numPadToAction')
@@ -87,6 +104,13 @@ class numPadFace:
             self.lastBtnPress = numPcoords
 
             print(padToAction)
+
+            if numPcoords == self.lastReelPress:
+                print(self.take)
+                self.take += 1
+                #take increaser momdner
+
+            self.lastReelPress = numPcoords
 
             return(padToAction)
             
@@ -103,7 +127,8 @@ class numPadFace:
 
 
 
-
+    #by the time i get to spi display these things are part of the class
+    #this is antiquated by comparison
 
     def binDispCommand(self,num):
         self.display.displayNumber(num)
@@ -155,3 +180,14 @@ class numPadFace:
             else:
                 self.binDispCommand(3)
                 sleep(t)
+
+
+
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@
 from subprocess import call
 import sys
 
-from actionComputers.actionComputerSC import numPadFace
+from actionComputers.godComplexActionSeperators.actionComputerSC import numPadFace
 
 
 import subprocess

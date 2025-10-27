@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 
-import outputs.binDisp as binDisp
 
 from time import sleep
 import subprocess
-
+import cv2 as cv
 
 #display objects get assigned in here so we are chillin
 
 
+#OUTPUTS:
+import outputs.binDisp as binDisp
+import outputs.spiDisp as oledDisplay
 
-DISPLAY = binDisp.binaryDisplay()
+BINARYDISPLAY = binDisp.binaryDisplay()
+OLEDDISPLAY = oledDisplay.oledDisp()
+#fuck you
+
 
 
 def setUp():
@@ -29,20 +34,20 @@ def setUp():
         if "No modems were found" in result.stdout:
             print(result.stdout)
 
-            DISPLAY.displayNumber(0)
+            BINARYDISPLAY.displayNumber(0)
             sleep(0.25)
-            DISPLAY.displayNumber(3)
+            BINARYDISPLAY.displayNumber(3)
             sleep(0.25)
-            DISPLAY.displayNumber(7)
+            BINARYDISPLAY.displayNumber(7)
             sleep(0.25)
-            DISPLAY.displayNumber(15)
+            BINARYDISPLAY.displayNumber(15)
             sleep(0.25)
 
 
         else:
             print("MODEM SUPPOSEDLY FOUND")
             print(result.stdout)
-            DISPLAY.displayNumber(0)
+            BINARYDISPLAY.displayNumber(0)
 
             return
             #end of setup returns out of function
@@ -77,18 +82,24 @@ setUp()
 
 #GET INPUT DEVICES
 import inputs.numPad as numPad
-import inputs.modemManagerDbusPorts as modemManager
+import intIO.modemManagerDbusPorts as modemManager
 NUMPAD = numPad.numPadIn()
 MODEM = modemManager.currentModemCtrl()
+#tell me tell me you love me come back come back to haunt meeee
 
 
 #GET INPUT COMPUTERS
 import actionComputers.numberPad as numberPad
 import actionComputers.shutdown as shitDown
 import actionComputers.musicControl as mc
-NUMIN = numberPad.numberPadNumbers(DISPLAY)
-SHUTDOWN = shitDown.shutDown(DISPLAY)
-MUSIC = mc.controlMusic(DISPLAY)
+
+import actionComputers.texting as messanger
+
+NUMIN = numberPad.numberPadNumbers(BINARYDISPLAY,OLEDDISPLAY)
+SHUTDOWN = shitDown.shutDown(BINARYDISPLAY,OLEDDISPLAY)
+MUSIC = mc.controlMusic(BINARYDISPLAY,OLEDDISPLAY)
+
+MESSAGING = messanger.messaging(BINARYDISPLAY,MODEM,OLEDDISPLAY)
 
 
 
@@ -103,13 +114,14 @@ for i in range(len(inputDevs)):
     #holy runtime
     #dw its slightly more dynamic
     #I am the angry pumpkin
+    #fuck you
 
 
 #in this case input means thing its getting sensory data from or just places its checking to feel an update
 #haha this looks like penis
 
 #SET INPUT COMPUTERS INDEXS
-faces = [NUMIN,SHUTDOWN,MUSIC]
+faces = [NUMIN,SHUTDOWN,MUSIC,MESSAGING]
 #give the faces their index
 for i in range(len(faces)):
     faces[i].setIndex(i)
@@ -122,6 +134,7 @@ for i in range(len(faces)):
 #set the default face to phone
 currFace = 0
 
+OLEDDISPLAY.displayImage(cv2.imread('/home/bunkebear/meMe/Trollface.png'))
 
 while True:
 
@@ -183,6 +196,11 @@ while True:
     #return packets are shaped like [HEADER, BODY]
     if (inputComms[1]):
         None
+
+        #if incoming call force currFace to be the call face
+
+        #else curr face is 0 (default)
+
 
 
 

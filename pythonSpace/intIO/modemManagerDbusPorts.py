@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 from inputs.inputSC import inputSuperclass
 
+
+#we like to pretend this is input around these parts
+
 from time import sleep
 # pip install sdbus
 import sdbus
@@ -239,6 +242,11 @@ class currentModemCtrl(inputSuperclass):
 
         #we only need to wrangle the modem path out of the mouth of satan once bc we only have one modem, everhything ehich does nto ecplciiylu need ity doesnt need it and even if it did we have it now
         self.modemPort = modem(service_name='org.freedesktop.ModemManager1', object_path=self.modemDbusPath)
+
+
+
+
+
 
 
 

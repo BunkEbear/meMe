@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import actionComputers.actionComputerSC
+import actionComputers.godComplexActionSeperators.actionComputerSC
 
 import pygame
 #import random
@@ -15,7 +15,7 @@ pygame.mixer.pre_init(44100, -16, 2, 4096)
 pygame.mixer.init()
 
 
-class controlMusic(actionComputers.actionComputerSC.numPadFace):
+class controlMusic(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace):
 
 
 
@@ -181,9 +181,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
 
 
 
-    def __init__(self, displayObject):
+    def __init__(self, displayObject, spiDisplay):
 
-        super().__init__(displayObject)
+        super().__init__(displayObject,spiDisplay)
         
         self.playing = False
 
