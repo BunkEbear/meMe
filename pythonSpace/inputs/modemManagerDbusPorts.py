@@ -145,7 +145,8 @@ class currentModemCtrl(inputSuperclass):
             #print (self.messages[0])
             #cause i did not read the documentation
 
-            oldHighInd = int(self.messages[0].split('/')[-1])
+            #holy how does this still point to self.messages
+            oldHighInd = int(self.messages.copy[0].split('/')[-1])
 
             #new messages:
             self.messages = self.messagingPort.List()
