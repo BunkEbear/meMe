@@ -63,7 +63,9 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         print('playing: ' + song)
         pygame.mixer.music.load(self.playlistPath + '/' + song)
         pygame.mixer.music.play()
-        self.playPause = True
+        self.playing = True
+        self.playPause(True)
+        #unless explicitly stated (innit,) it plays the song it sets
 
 
         
@@ -222,6 +224,7 @@ class controlMusic(actionComputers.actionComputerSC.numPadFace):
         self.setPlaylist(self.playlists[self.playlistIndex])
         #self.setSong(self.playlistContents[self.songOfPlaylist])
         self.playPause(False)
+
         self.playing = False
 
 
