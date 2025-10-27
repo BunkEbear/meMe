@@ -145,7 +145,7 @@ class currentModemCtrl(inputSuperclass):
     
     def __init__(self):
 
-        self.messages = None
+        self.messages = []
 
 
         self.modemDbusPath = None
