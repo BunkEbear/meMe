@@ -145,12 +145,16 @@ while True:
 
         #if cranityCheck:
             #print(cranityCheck)
+    #the numpad always has something to say..
+    ####################################CHECKS AND DISTRIBUTES NUMPAD INPUT:
     if (inputComms[0]):
+        #kind of a relic but i dont wnana touch in this itteration
+
+        #even no input counts as input, maybe useful
 
         #every face has numpad inputs so we feed it into the current face no matter what
         switchFace = faces[currFace].numPadCommand(inputComms[0])
         
-
 
 
 
@@ -174,6 +178,11 @@ while True:
 
 
 
+    #if the modem has something to say
+    #modem returns calls and messages
+    #return packets are shaped like [HEADER, BODY]
+    if (inputComms[1]):
+        None
 
 
 

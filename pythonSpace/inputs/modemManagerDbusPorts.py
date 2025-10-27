@@ -93,6 +93,7 @@ class messaging(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManage
 
 # org.freedesktop.ModemManager1.Sms interface (used for sending)
 class sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms'):
+#call in per message
 
     @dbus_method()
     def Send(self) -> None:
@@ -115,8 +116,28 @@ class currentModemCtrl(inputSuperclass):
 
 
     def report(self):
+         #return nothing
+         #or return [header, body]
 
-         print(self.messagingPort.List())
+        oldMessages = self.messages
+
+        #new messages:
+        self.messages = self.messagingPort.List()
+
+        if self.messages[-1].split('/')[-1] > oldMessages[-1].split('/')[-1]:
+
+            currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=oldMessages[-1])
+
+            print(currMessage.text)
+
+            #stuff from message object function get it
+            return[currMessage.number, currMessage.text]
+
+
+        return None
+
+
+
 
 
 #modem_path = '/org/freedesktop/ModemManager1/Modems/0'
@@ -124,7 +145,7 @@ class currentModemCtrl(inputSuperclass):
     
     def __init__(self):
 
-        messages = None
+        self.messages = None
 
 
         self.modemDbusPath = None
