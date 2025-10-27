@@ -77,7 +77,9 @@ setUp()
 
 #GET INPUT DEVICES
 import inputs.numPad as numPad
+import inputs.modemManagerDbusPorts as modemManager
 NUMPAD = numPad.numPadIn()
+MODEM = modemManager.currentModemCtrl()
 
 
 #GET INPUT COMPUTERS
@@ -94,7 +96,7 @@ MUSIC = mc.controlMusic(DISPLAY)
 
 #here is where the heirarchy of checking in on things and displaying them is decided
 #SET INPUT DEVICE INDEXS
-inputDevs = [NUMPAD]
+inputDevs = [NUMPAD,MODEM]
 #add fifo input? or dbus input?
 for i in range(len(inputDevs)):
     inputDevs[i].setIndex(i)

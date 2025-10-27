@@ -19,26 +19,11 @@ from sdbus import DbusInterfaceCommon, dbus_method, dbus_property, DbusObjectMan
 #being able to define locality on a different layer of abstraction
 
 
-#object manager 
-#class ObjectManager(DbusInterfaceCommon, interface_name='org.freedesktop.DBus.ObjectManager'):
-##    
-#
-
-#                                #stuff to define how the message is shaped
-#    @dbus_method(result_signature='a{oa{sa{sv}}}')
-#    # a decorator for the upcoming function
-#
-#    def GetManagedObjects(self):  # returns {object_path: {iface: {prop: value}}}
-#        raise NotImplementedError
-#        #we do this 
 
 
 
 
-
-
-
-class Manager(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1'):
+class manager(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1'):
 
     @dbus_method()  # ScanDevices() takes no arguments, returns nothing
     def ScanDevices(self) -> None:
@@ -51,8 +36,9 @@ class Manager(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1
 
 
 
+
 #subclass to represent a port into the dbus
-class Modem(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Modem'):
+class modem(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Modem'):
     
     @dbus_method('b')  # input: boolean
     def Enable(self, enable: bool) -> None:
@@ -70,7 +56,11 @@ class Modem(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.M
 
 
 
-class Messaging(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Modem.Messaging'):
+
+
+
+
+class messaging(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Modem.Messaging'):
 
     @dbus_method('', 'ao')
     def List(self) -> list:
@@ -97,8 +87,10 @@ class Messaging(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManage
 
 
 
+
+
 # org.freedesktop.ModemManager1.Sms interface (used for sending)
-class Sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms'):
+class sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms'):
 
     @dbus_method()
     def Send(self) -> None:
@@ -120,10 +112,19 @@ class currentModemCtrl:
 
 
 
+    def report(self):
+
+         print(self.messagingPort.List)
+
+
 #modem_path = '/org/freedesktop/ModemManager1/Modems/0'
 
     
     def __init__(self):
+
+        messages = None
+
+
 
         # Use the **system** bus (ModemManager lives here)
         sdbus.set_default_bus(sdbus.sd_bus_open_system())
@@ -134,13 +135,8 @@ class currentModemCtrl:
 
 
         # Use the built-in ObjectManager interface
-        self.om = DbusObjectManagerInterface(
-            service_name='org.freedesktop.ModemManager1',
-            object_path='/org/freedesktop/ModemManager1',
-        )
+        self.objectManagerPort = DbusObjectManagerInterface(service_name='org.freedesktop.ModemManager1', object_path='/org/freedesktop/ModemManager1')
 
-        #place holder for 
-        self.objs = None
         #we only need to wrangle the modem path out of the mouth of satan once bc we only have one modem, everhything ehich does nto ecplciiylu need ity doesnt need it and even if it did we have it now
         self.modemPort = None
         #fuck you
@@ -151,22 +147,31 @@ class currentModemCtrl:
         self.modemPort.Enable(True)
 
 
+        self.messagingPort = messaging(service_name='org.freedesktop.ModemManager1', object_path=self.modemPort.object_path)
+
+        #selected Message
+        self.smsPort = None
+        #create sms object per message
+
+        #maybe load structure of sms objects to indexes but im lazy
+        #eh its mostly already done by mm and dbus
 
 
 
     def getModem(self):
 
-        modem_path = None
+        modemPath = None
+        objects = None
 
-        while(not(modem_path)):
+        while(not(modemPath)):
 
-            self.objs = self.om.get_managed_objects()
+            objects = self.objectManagerPort.get_managed_objects()
 
             print('lookin for Modem')
 
-            if any('org.freedesktop.ModemManager1.Modem' in ifaces for path, ifaces in self.objs.items()) :
+            if any('org.freedesktop.ModemManager1.Modem' in ifaces for path, ifaces in objects.items()) :
                 
-                modem_path = next(path for path, ifaces in self.objs.items() if 'org.freedesktop.ModemManager1.Modem' in ifaces)
+                modemPath = next(path for path, ifaces in objects.items() if 'org.freedesktop.ModemManager1.Modem' in ifaces)
 
 
             sleep(1)
@@ -175,17 +180,27 @@ class currentModemCtrl:
 
 
         #we only need to wrangle the modem path out of the mouth of satan once bc we only have one modem, everhything ehich does nto ecplciiylu need ity doesnt need it and even if it did we have it now
-        self.modemPort = Modem(service_name='org.freedesktop.ModemManager1', object_path=modem_path)
+        self.modemPort = modem(service_name='org.freedesktop.ModemManager1', object_path=modemPath)
 
 
 
 
+
+
+
+
+
+#tedsting grounds
+#any furhter and ill shoot
 
 def test():
 
     controlModemObject = currentModemCtrl()
 
     print(controlModemObject.modemPort.signal_quality)
+
+
+
 
 
 test()
