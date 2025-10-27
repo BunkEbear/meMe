@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from inputs.inputSC import inputSuperclass
 
 from time import sleep
 # pip install sdbus
@@ -109,7 +110,7 @@ class sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms
 
 
 
-class currentModemCtrl:
+class currentModemCtrl(inputSuperclass):
 
 
 
