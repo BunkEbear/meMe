@@ -141,14 +141,16 @@ class currentModemCtrl(inputSuperclass):
 
         else:
 
+            #here is where i figured out modem manager stores messgaes in reverse order
             print (self.messages[0])
+            #cause i did not read the documentation
 
-            oldHighInd = self.messages[-1].split('/')[-1]
+            oldHighInd = self.messages[0].split('/')[-1]
 
             #new messages:
             self.messages = self.messagingPort.List()
 
-            newHighInd = self.messages[-1].split('/')[-1]
+            newHighInd = self.messages[0].split('/')[-1]
 
                 #look here at the index not the len cause we can delete messages in the middle
             if newHighInd > oldHighInd:
