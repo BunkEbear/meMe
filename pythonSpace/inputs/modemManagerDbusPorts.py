@@ -119,6 +119,8 @@ class currentModemCtrl(inputSuperclass):
          #return nothing
          #or return [header, body]
 
+        print('reporting')
+
         oldMessages = self.messages
 
         #new messages:
