@@ -157,7 +157,8 @@ class oledDisp:
 
     def resizeImageToFit(self, image):
 
-        image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+        if len(image.shape) == 3:
+            image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
         
         # Get original dimensions
         height, width = image.shape[:2]
