@@ -6,7 +6,7 @@ import copy
 
 class messaging(actionComputers.godComplexActionSeperators.superClassMessageExtend.t9):
 
-    def reply(self,message):
+    def reply(self):
         None
 
         self.clearMessage()
