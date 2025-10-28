@@ -29,12 +29,17 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
 
 
-    def displayMessage(self,header,body):
+    def displayMessage(self): # i have conquored this function, its mine now fucker
         None
+        #when the code ripe for the colonizing
+
         #bin disp the message contents you took
 
-        messageDpath = self.modemDbus.messages[self.scrollingMessageIndex]
+        #messageDpath = self.modemDbus.messages[self.scrollingMessageIndex]
+        
+        message = self.modemDbus.getMessage(self.scrollingMessageIndex)
 
+        self.oledDisplay.displayText(message.number, message.text)
         
 
 
@@ -57,8 +62,9 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         scrollingIndex %= (len(self.modemDbus.messages) -1)
 
-        self.currMessage()
+        #self.currMessage()
 
+        
 
         #display a message
         #somehow feed it 
