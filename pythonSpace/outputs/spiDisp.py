@@ -41,6 +41,11 @@ class oledDisp:
 
     def displayText(self, header, body):
 
+        lineLength = 20
+
+        body = '\n'.join(body[i:i+lineLength] for i in range(0, len(body), lineLength))
+
+
         slate = self.blankImage.copy()
 
         cv.rectangle(slate, (0, 0), (127, 10), 255, -1)
