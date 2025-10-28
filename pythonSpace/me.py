@@ -196,7 +196,7 @@ while True:
     #return packets are shaped like [HEADER, BODY]
     if (inputComms[1]):
                                 #the report of the message
-        OLEDDISPLAY.displayText(inputComms[1])
+        OLEDDISPLAY.displayText(inputComms[1][0],inputComms[1][1])
 
         None
 
