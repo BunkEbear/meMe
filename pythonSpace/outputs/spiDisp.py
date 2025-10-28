@@ -27,7 +27,7 @@
 
 import spidev, time, sys
 import RPi.GPIO as GPIO
-#from PIL import Image
+from PIL import Image
 #needs numpy for image manipulation
 import numpy as np
 #fuck you
@@ -119,27 +119,24 @@ class oledDisp:
     #idk what that frenchman was speaking of, but this now takes in cv2 numpy image arrays
     def displayImage(self,image):
 
+        #fits image
+
         fitted_image = self.resizeImageToFit(image)
 
+        #uses the french code
+        pil_image = Image.fromarray(fitted_image, mode='L')
+
+        #fuck you
+        image = pil_image
 
         data_slice=[[],[],[],[],[],[],[],[]]
-
         GPIO.output(self.A0, 0)
-
         for p in range (0,8): #l'image est découpée en 8 tranches horizontales de 8 pixels
             data_set = []
             for c in range (0,128): #chaque tranche fait 8x128 px
                 by = 0x00
                 for b in range (0,8):
-                    
-                    #original code intended for PIL object
-                    #by = by>>1 | (image.getpixel((c, p*8+b))& 0x80)
-
-
-                    #GPT insert intended for OPENCV image object (numpy array)
-                    by = by>>1 | (fitted_image[p*8+b, c] & 0x80)
-
-
+                    by = by>>1 | (image.getpixel((c, p*8+b))& 0x80)
                 data_set.append(by)
             data_slice[p]=data_set
         self.spi.xfer([0xAF]) #active l'afficheur (0xAE pour l'éteindre)
@@ -148,6 +145,7 @@ class oledDisp:
             self.spi.xfer([0xB0+p, 0x02, 0x10]) #initialise l'adresse des colonnes
             GPIO.output(self.A0, 1)
             self.spi.xfer(data_slice[p]) #transfer 1 tranche de 128x8 pixels
+
 
         
 
