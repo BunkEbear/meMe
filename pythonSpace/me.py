@@ -94,6 +94,7 @@ import actionComputers.shutdown as shitDown
 import actionComputers.musicControl as mc
 
 import actionComputers.texting as messanger
+#so convoluted
 
 NUMIN = numberPad.numberPadNumbers(BINARYDISPLAY,OLEDDISPLAY)
 SHUTDOWN = shitDown.shutDown(BINARYDISPLAY,OLEDDISPLAY)
