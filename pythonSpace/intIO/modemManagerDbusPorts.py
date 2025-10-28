@@ -163,7 +163,7 @@ class currentModemCtrl(inputSuperclass):
                 currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=self.messages[0])
 
                 print(currMessage.text)
-                print('hiiii')
+                #print('hiiii')
 
                 #stuff from message object function get it
                 return[currMessage.number, currMessage.text]

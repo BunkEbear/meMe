@@ -195,6 +195,9 @@ while True:
     #modem returns calls and messages
     #return packets are shaped like [HEADER, BODY]
     if (inputComms[1]):
+                                #the report of the message
+        OLEDDISPLAY.displayText(inputComms[1])
+
         None
 
         #if incoming call force currFace to be the call face

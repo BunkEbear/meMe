@@ -41,7 +41,7 @@ class oledDisp:
 
     def displayText(self, header, body):
 
-        lineLength = 20
+        lineLength = 10
 
         body = '\n'.join(body[i:i+lineLength] for i in range(0, len(body), lineLength))
 
