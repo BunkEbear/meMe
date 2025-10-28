@@ -166,7 +166,14 @@ class currentModemCtrl(inputSuperclass):
                 #print('hiiii')
 
                 #stuff from message object function get it
-                return[currMessage.number, currMessage.text]
+
+                print(currMessage.number)
+
+                print(currMessage.text)
+
+                #return[currMessage.number, currMessage.text]
+
+
 
 
 

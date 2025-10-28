@@ -48,10 +48,10 @@ class oledDisp:
         cv.rectangle(slate, (0, 0), (127, 10), 255, -1)
 
         # Add header text on the white rectangle (black text)
-        cv.putText(slate, header, (2, 8), cv.FONT_HERSHEY_TRIPLEX , 0.4, 0, 1)
+        cv.putText(slate, header, (2, 8), cv.FONT_HERSHEY_COMPLEX , 0.4, 0, 1)
         
         # Add body text below the rectangle (white text on black background)
-        cv.putText(slate, body, (2, 15), cv.FONT_HERSHEY_PLAIN, 0.3, 255, 1)
+        cv.putText(slate, body, (2, 15), cv.FONT_HERSHEY_PLAIN, 0.4, 255, 1)
         
 
         self.displayImage(slate)
