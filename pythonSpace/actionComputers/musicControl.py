@@ -65,6 +65,9 @@ class controlMusic(actionComputers.godComplexActionSeperators.actionComputerSC.n
         pygame.mixer.music.play()
         self.playing = True
         self.playPause(True)
+
+        self.oledDisplay.displayText('PLAYING',song)
+
         #unless explicitly stated (innit,) it plays the song it sets
 
 

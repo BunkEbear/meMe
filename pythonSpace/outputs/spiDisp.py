@@ -32,7 +32,8 @@ from PIL import Image
 import numpy as np
 #fuck you
 import cv2 as cv
-
+#we use cv in this house
+#move it or loose it snowcode
 
 class oledDisp:
 
@@ -123,8 +124,11 @@ class oledDisp:
 
         fitted_image = self.resizeImageToFit(image)
 
+        #flip it so that its right side up with da cables on top
+        flippedImage = cv.flip(fitted_image, 0)
+
         #uses the french code
-        pil_image = Image.fromarray(fitted_image, mode='L')
+        pil_image = Image.fromarray(flippedImage, mode='L')
 
         #fuck you
         image = pil_image
