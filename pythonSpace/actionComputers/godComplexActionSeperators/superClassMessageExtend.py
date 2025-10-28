@@ -19,14 +19,20 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
         #here is where it interacts with the sceren sometimes it can do this cause we pass it in in me.py
 
-
+        #not entirely shure why we pass it in but sure
         def addCharacter(self,take,charList):
-              
-            take %= charList
+            
+            if take == 0:
+                 self.message += charList[take]
 
-            self.message += charList[take]
+            else:
+                self.message = self.message[:-2]
 
-            self.oledDisplay.displayText('type:', self.message)
+                take %= charList
+
+                self.message += charList[take]
+
+#            self.oledDisplay.displayText('type:', self.message)
 
             print(self.message)
 
