@@ -64,10 +64,12 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         #self.currMessage()
 
-        
+        message = self.modemDbus.getMessage(self.scrollingMessageIndex)
 
         #display a message
         #somehow feed it 
+
+        self.oledDisplay.displayText(message.number, message.text)
 
 
     def sendMessage(self,messageString, numberTo):
