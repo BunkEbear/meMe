@@ -9,6 +9,10 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
 
         def clearMessage(self):
+             
+             if self.message == "":
+                  self.returnToNormal()
+
              self.message = ""
 
 
@@ -32,7 +36,12 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
              self.duoLingo = copy.deepcopy(self.backDuoLingo)
 
 
+        def dele(self):
 
+            if self.message < 2:
+                 self.clearMessage
+
+            self.message = self.message[:-2]
 
 
         def __init__(self,binDispObj,spiDisplay):
@@ -72,7 +81,7 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             #self.duoLingo[2][3] = None
 
 
-            self.duoLingo[3][0] = lambda: self.returnToNormal()
+            self.duoLingo[3][0] = lambda: self.returnToNormal() #backspace function, if there is no text left it returns
             self.duoLingo[3][1] = lambda: self.addCharacter(self.take, [' '])
-            self.duoLingo[3][2] = None
+            self.duoLingo[3][2] = None #send function like finition (finish message function)
             #self.duoLingo[3][3] = None
