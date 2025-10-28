@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from godComplexActionSeperators.actionComputerSC import numPadFace
+from actionComputers.godComplexActionSeperators.actionComputerSC import numPadFace
 
 import subprocess
 
