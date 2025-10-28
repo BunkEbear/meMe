@@ -71,7 +71,7 @@ class oledDisp:
 
     def __init__(self):
 
-        self.blankImage = np.zeros((128,64), np.uint8)
+        self.blankImage = np.zeros((64,128), np.uint8)
 
         self.imageState = None
 
