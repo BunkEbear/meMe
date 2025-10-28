@@ -25,7 +25,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         self.passThroughSemanticsPoralInPoorTaste = messagetoreply.number
 
         self.setNormalCharacters() #normal as in normal typing
-        self.duoLingo[3][2] = self.sendMessage(messagetoreply.number, self.message)
+        self.duoLingo[3][2] = lambda: self.sendMessage(messagetoreply.number, self.message)
 
 
 
