@@ -125,7 +125,8 @@ class oledDisp:
         fitted_image = self.resizeImageToFit(image)
 
         #flip it so that its right side up with da cables on top
-        flippedImage = cv.flip(fitted_image, 0)
+        flippedImage = cv.flip(fitted_image, -1)
+        #roted not filp
 
         #uses the french code
         pil_image = Image.fromarray(flippedImage, mode='L')
