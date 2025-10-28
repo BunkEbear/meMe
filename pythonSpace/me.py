@@ -3,7 +3,7 @@
 
 from time import sleep
 import subprocess
-import cv2 as cv
+import cv2
 
 #display objects get assigned in here so we are chillin
 
