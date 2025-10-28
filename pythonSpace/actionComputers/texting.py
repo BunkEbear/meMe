@@ -54,13 +54,13 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
     def nextPrevMessage(self,b):
 
         if b:
-            scrollingMessageIndex += 1
+            self.scrollingMessageIndex += 1
         
         else:
-            scrollingMessageIndex -= 1
+            self.scrollingMessageIndex -= 1
         
 
-        scrollingIndex %= (len(self.modemDbus.messages) -1)
+        self.scrollingIndex %= (len(self.modemDbus.messages) -1)
 
         #self.currMessage()
 
