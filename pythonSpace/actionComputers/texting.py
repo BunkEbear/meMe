@@ -8,9 +8,24 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
     def reply(self,message):
         None
+
+        self.clearMessage()
         #open a chat with the message details
 
-        self.setNormalCharacters()
+        messagetoreply = self.modemDbus.getMessage(self.scrollingMessageIndex)
+
+# messager.number changes for outgoing and incoming for what I need yipeee
+#        if messagetoreply.pdu_type == 0:
+ #           None
+#
+ #       elif messagetoreply.pdu_type == 1:
+  #          None
+#dw bby modem manager has u now
+
+        self.passThroughSemanticsPoralInPoorTaste = messagetoreply.number
+
+        self.setNormalCharacters() #normal as in normal typing
+        self.duoLingo[3][2] = self.sendMessage(messagetoreply.number, self.message)
 
 
 
@@ -27,6 +42,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
     def currMessage(self):
         None
+        #and there really was nothing.
 
 
 
@@ -48,7 +64,16 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #somehow feed it 
 
 
-    def sendMessage(messageString, numberTo):
+    def sendMessage(self,messageString, numberTo):
+
+
+        self.modemDbus.makeSend(numberTo, messageString)
+
+
+        self.clearMessage()
+        self.clearMessage()
+        #clearing twice returns the normal key functions
+
         None
 
 
@@ -89,6 +114,8 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #self.duoLingo[3][2] = None
         #self.duoLingo[3][3] = None
 
+
+        #absoulte sure
 
         self.backDuoLingo = copy.deepcopy(self.duoLingo)
 

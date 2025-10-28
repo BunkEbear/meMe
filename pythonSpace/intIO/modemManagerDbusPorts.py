@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 from inputs.inputSC import inputSuperclass
 
+#intIO is internal IO
 
 #we like to pretend this is input around these parts
+#we nolonger doh tis
 
 from time import sleep
 # pip install sdbus
@@ -10,6 +12,8 @@ import sdbus
 #i do not know why this is here
 #i now know why this is here
 #fuck you
+#fuck you
+
 
 #from sdbus import the simple dbus interface
 from sdbus import DbusInterfaceCommon, dbus_method, dbus_property, DbusObjectManagerInterface
@@ -116,13 +120,42 @@ class sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms
         raise NotImplementedError
 
 
+    @dbus_property('u', property_name='State')
+    def state(self) -> int:
+        """Get the SMS state (sent/received/etc)."""
+        raise NotImplementedError
+    #stop you're in violation of the law (enemy of the state)
 
 
+    @dbus_property('u', property_name='PduType')
+    def pdu_type(self) -> int:
+        """Get the SMS PDU type (deliver/submit)."""
+        raise NotImplementedError
 
 
 
 
 class currentModemCtrl(inputSuperclass):
+
+
+
+    def makeSend(self, number, messageString):
+
+        smsObjectPath = self.messagingPort.Create({'number': number,'text': messageString})
+
+                    #maybe I should make this service name thing a varialbe.... some day.... some day...
+        smsObject = sms(service_name='org.freedesktop.ModemManager1', object_path=smsObjectPath)
+            #fuck you
+        
+        smsObject.Send()
+
+        #creates and sends message
+        None
+
+
+    def getMessage(self,index):
+        #gets message by mm index
+        return sms(service_name='org.freedesktop.ModemManager1', object_path=self.messages[index])
 
 
 
@@ -160,6 +193,7 @@ class currentModemCtrl(inputSuperclass):
                 #look here at the index not the len cause we can delete messages in the middle
             if newHighInd > oldHighInd:
 
+                                #bonefied sms object yo #fuck you
                 currMessage = sms(service_name='org.freedesktop.ModemManager1', object_path=self.messages[0])
 
                 #print(currMessage.text)

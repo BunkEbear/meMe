@@ -29,6 +29,8 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             self.oledDisplay.displayText('type:', self.message)
 
             print(self.message)
+
+            self.oledDisplay.displayText(self.passThroughSemanticsPoralInPoorTaste, self.message)
               
 
 
@@ -48,6 +50,7 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
             super().__init__(binDispObj,spiDisplay)
 
+            self.passThroughSemanticsPoralInPoorTaste = ""
 
             self.message = ""
 
@@ -56,7 +59,10 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             
             self.backDuoLingo = copy.deepcopy(self.duoLingo)
 
-            
+
+        #
+        # def getMessage()
+          #message is stored within the self  
 
 
         def setNormalCharacters(self):
@@ -81,7 +87,7 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             #self.duoLingo[2][3] = None
 
 
-            self.duoLingo[3][0] = lambda: self.returnToNormal() #backspace function, if there is no text left it returns
+            self.duoLingo[3][0] = lambda: self.dele() #backspace function, if there is no text left it returns
             self.duoLingo[3][1] = lambda: self.addCharacter(self.take, [' '])
-            self.duoLingo[3][2] = None #send function like finition (finish message function)
+            #self.duoLingo[3][2] = None #send function like finition (finish message function) # set this in texting as like a send
             #self.duoLingo[3][3] = None
