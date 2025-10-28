@@ -60,7 +60,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
             self.scrollingMessageIndex -= 1
         
 
-        self.scrollingIndex %= (len(self.modemDbus.messages) -1)
+        self.scrollingMessageIndex %= (len(self.modemDbus.messages) -1)
 
         #self.currMessage()
 
