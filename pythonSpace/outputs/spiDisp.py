@@ -51,7 +51,7 @@ class oledDisp:
         cv.putText(slate, body, (2, 25), cv.FONT_HERSHEY_SIMPLEX, 0.4, 255, 1)
         
 
-
+        self.displayImage(slate)
 
         None
         #call display image
@@ -119,6 +119,9 @@ class oledDisp:
     #idk what that frenchman was speaking of, but this now takes in cv2 numpy image arrays
     def displayImage(self,image):
 
+        fitted_image = self.resizeImageToFit(image)
+
+
         data_slice=[[],[],[],[],[],[],[],[]]
 
         GPIO.output(self.A0, 0)
@@ -134,7 +137,7 @@ class oledDisp:
 
 
                     #GPT insert intended for OPENCV image object (numpy array)
-                    by = by>>1 | (image[p*8+b, c] & 0x80)
+                    by = by>>1 | (fitted_image[p*8+b, c] & 0x80)
 
 
                 data_set.append(by)
@@ -154,9 +157,37 @@ class oledDisp:
 
 
 
-
-
-
+    def resizeImageToFit(self, image):
+        
+        if image is None:
+            return self.blankImage
+        
+        # Get original dimensions
+        height, width = image.shape[:2]
+        
+        # Calculate scaling factor to fit within 128x64
+        scale_w = 128 / width
+        scale_h = 64 / height
+        scale = min(scale_w, scale_h)  # Use smaller scale to fit both dimensions
+        
+        # Calculate new dimensions
+        new_width = int(width * scale)
+        new_height = int(height * scale)
+        
+        # Resize the image
+        resized = cv.resize(image, (new_width, new_height), interpolation=cv.INTER_AREA)
+        
+        # Create a blank 128x64 canvas
+        canvas = np.zeros((64, 128), dtype=np.uint8)
+        
+        # Calculate position to center the image
+        start_x = (128 - new_width) // 2
+        start_y = (64 - new_height) // 2
+        
+        # Place resized image on canvas
+        canvas[start_y:start_y+new_height, start_x:start_x+new_width] = resized
+        
+        return canvas
 
 
 
