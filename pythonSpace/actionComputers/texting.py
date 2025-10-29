@@ -88,7 +88,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
     def __init__(self,binDispObj,modemDbusPorts,spiDisplay):
 
-        super().__init__(binDispObj,spiDisplay)
+        
 
         self.modemDbus = modemDbusPorts
 
@@ -127,7 +127,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.backDuoLingo = copy.deepcopy(self.duoLingo)
 
-
+        super().__init__(binDispObj,spiDisplay)
 
 
 
