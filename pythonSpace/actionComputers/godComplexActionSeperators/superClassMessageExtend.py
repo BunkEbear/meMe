@@ -46,10 +46,10 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
         def dele(self):
 
-            if len(self.message) < 2:
+            if len(self.message) < 1:
                  self.clearMessage
 
-            self.message = self.message[:-2]
+            self.message = self.message[:-1]
 
             self.oledDisplay.displayText(self.passThroughSemanticsPoralInPoorTaste, self.message)
 
