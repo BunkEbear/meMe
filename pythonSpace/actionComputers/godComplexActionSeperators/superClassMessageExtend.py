@@ -46,7 +46,7 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
         def dele(self):
 
-            if self.message < 2:
+            if len(self.message) < 2:
                  self.clearMessage
 
             self.message = self.message[:-2]
