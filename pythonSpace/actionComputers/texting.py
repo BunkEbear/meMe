@@ -75,7 +75,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
     def sendMessage(self,messageString, numberTo):
 
 
-        self.modemDbus.makeSend((numberTo, messageString))
+        self.modemDbus.makeSend(numberTo, messageString)
 
 
         self.clearMessage()
