@@ -51,6 +51,8 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
             self.message = self.message[:-2]
 
+            self.oledDisplay.displayText(self.passThroughSemanticsPoralInPoorTaste, self.message)
+
 
         def __init__(self,binDispObj,spiDisplay):
 
