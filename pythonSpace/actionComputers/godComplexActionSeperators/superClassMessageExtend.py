@@ -21,6 +21,8 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
         #not entirely shure why we pass it in but sure
         def addCharacter(self,take,charList):
+
+            print (self.take)
             
             if take == 0:
                  self.message += charList[take]
