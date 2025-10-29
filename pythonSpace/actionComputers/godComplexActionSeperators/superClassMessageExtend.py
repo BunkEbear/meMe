@@ -50,6 +50,7 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
             if len(self.message) < 1:
                  self.clearMessage
+                 print('cleared message')
 
             self.message = self.message[:-1]
 
