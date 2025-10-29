@@ -38,7 +38,7 @@ class numPadFace:
         #take of which key of how many times we are pressed
         self.take = 0
         
-        self.lastReelPress = [None,None]
+        self.lastReelPress = (None,None)
 
 
 
@@ -57,7 +57,7 @@ class numPadFace:
         self.oledDisplay = spiDisplay
         #there is food inside of the outlet
 
-        self.lastBtnPress = [None,None]
+        self.lastBtnPress = (None,None)
 
 
 
@@ -84,7 +84,7 @@ class numPadFace:
 
 
         else:
-            if numPcoords == [None, None]:
+            if numPcoords == (None, None):
                 self.lastBtnPress = numPcoords
                 return self.faceIndex
             
@@ -104,6 +104,8 @@ class numPadFace:
             self.lastBtnPress = numPcoords
 
             print(padToAction)
+
+            #weirld refrence stuff bc its using lists not tuples
 
             if numPcoords == self.lastReelPress:
                 print(self.take)

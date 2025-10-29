@@ -51,7 +51,7 @@ class numPadIn(inputSuperclass):
 
 
     def report(self):
-        self.btnPress = [None, None]
+        self.btnPress = (None, None)
         #self.btnPress = None
         
         for n in range(len(self.rows)):
@@ -65,7 +65,7 @@ class numPadIn(inputSuperclass):
 
                 #if the column hears the row then we know
                 if(GPIO.input(self.columns[i]) == 1):
-                    self.btnPress = [i,n]
+                    self.btnPress = (i,n)
                     #print ([i,n])
 
 
