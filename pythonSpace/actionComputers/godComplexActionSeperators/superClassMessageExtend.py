@@ -44,6 +44,7 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
         def returnToNormal(self):
              self.duoLingo = copy.deepcopy(self.backDuoLingo)
+             print(self.duoLingo)
 
 
         def dele(self):
