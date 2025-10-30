@@ -38,7 +38,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         #passes this into the updating screen thing in texting
 
-        self.setNumberCharacters() #normal as in normal typing
+        self.setNormalCharacters() #normal as in normal typing
 
         self.duoLingo[3][2] = lambda: self.sendMessage(number, self.message)
 
@@ -55,7 +55,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #i got motion
 
         self.passThroughSemanticsPoralInPoorTaste = 'enter number:'
-        self.setNormalCharacters()
+        self.setNumberCharacters()
         #this updates self.message
 
         self.duoLingo[3][2] = lambda: self.textTo('+1' + self.message)
