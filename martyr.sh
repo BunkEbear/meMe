@@ -41,7 +41,10 @@ cd /home/bunkebear/meMe
 
 	sudo -E /home/bunkebear/meMe/pyspective/bin/python3 /home/bunkebear/meMe/pythonSpace/me.py
 
-while systemctl is-system-running | grep -q "running"; do
+
+
+#while systemctl is-system-running | grep -q "running"; do
+while true; do
 	sudo chmod +x /home/bunkebear/meMe/pythonSpace/me.py
 
 	sudo -E /home/bunkebear/meMe/pyspective/bin/python3 /home/bunkebear/meMe/pythonSpace/me.py

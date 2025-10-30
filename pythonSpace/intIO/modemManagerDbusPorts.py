@@ -141,7 +141,7 @@ class currentModemCtrl(inputSuperclass):
 
     def makeSend(self, number, messageString):
                                                                             #dbus expects tuple to denote data type (packet shape locally)
-        smsObjectPath = self.messagingPort.Create({'number': ('s',str(number)),'text': ('s', messageString)})
+        smsObjectPath = self.messagingPort.Create({'Number': ('s',str(number)),'Text': ('s', messageString)})
 
                     #maybe I should make this service name thing a varialbe.... some day.... some day...
         smsObject = sms(service_name='org.freedesktop.ModemManager1', object_path=smsObjectPath)
