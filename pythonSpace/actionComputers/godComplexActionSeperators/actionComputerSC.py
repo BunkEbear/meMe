@@ -98,6 +98,19 @@ class numPadFace:
                 return self.faceIndex
             
 
+
+                        #weirld refrence stuff bc its using lists not tuples
+            #lmao fuck you i changed it
+            if self.currPress == self.lastReelPress:
+                print(self.take)
+                self.take += 1
+                #take increaser momdner
+            else:
+                self.take = 0
+
+            #placement jerry
+
+
             #here is where it meets the duolingo tensor
             padToAction = self.duoLingo[self.currPress[1]][self.currPress[0]]()
 
@@ -107,15 +120,6 @@ class numPadFace:
         
 
             #self.take += 1
-
-            #weirld refrence stuff bc its using lists not tuples
-            #lmao fuck you i changed it
-            if self.currPress == self.lastReelPress:
-                print(self.take)
-                self.take += 1
-                #take increaser momdner
-            else:
-                self.take = 0
 
 
 
