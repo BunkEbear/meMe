@@ -146,6 +146,10 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.clearMessage()
         self.clearMessage()
+
+        self.displayMessage()
+        #dispays the selected text message
+
         #clearing twice returns the normal key functions
 
         None
