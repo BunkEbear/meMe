@@ -8,6 +8,12 @@ import copy
 
 class messaging(actionComputers.godComplexActionSeperators.superClassMessageExtend.t9):
 
+
+    def switchedTo(self):
+        super().switchedTo()
+
+        self.displayMessage()
+
     def reply(self):
         None
 
@@ -46,6 +52,8 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         self.passThroughSemanticsPoralInPoorTaste = number
         #on your left
 
+        self.oledDisplay.displayText(self.passThroughSemanticsPoralInPoorTaste, self.message)
+
         #passes this into the updating screen thing in texting
 
         self.setNormalCharacters() #normal as in normal typing
@@ -64,7 +72,13 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #things have been set in motion which cannot be undone
         #i got motion
 
+
+
         self.passThroughSemanticsPoralInPoorTaste = 'enter number:'
+
+        self.oledDisplay.displayText(self.passThroughSemanticsPoralInPoorTaste, self.message)
+
+
         self.setNumberCharacters()
         #this updates self.message
 
