@@ -76,7 +76,7 @@ class oledDisp:
         #call display image
     
 
-    def splitString(text, length):
+    def splitString(self, text, length):
         return [text[i:i+length] for i in range(0, len(text), length)]
 
         
