@@ -7,6 +7,11 @@ import subprocess
 class numberPadNumbers(numPadFace):
 
 
+    def switchedTo(self):
+        super().switchedTo()
+
+        self.oledDisplay.displayText('call pad','enter number')
+
 
     def addNum(self,num):
 		#None

@@ -32,7 +32,9 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             else:
                 self.message = self.message[:-1]
 
-                take %= len(charList)
+                self.take %= len(charList)
+
+                #take -= 1
 
                 self.message += charList[take]
 
