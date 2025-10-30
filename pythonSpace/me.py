@@ -214,4 +214,7 @@ try:
 
 
 except Exception as e:
+
+    print(str(e))
+
     OLEDDISPLAY.displayText('ERROR',str(e))
