@@ -137,74 +137,79 @@ currFace = 0
 
 OLEDDISPLAY.displayImage(cv2.imread('/home/bunkebear/meMe/Trollface.png'))
 
-while True:
+
+
+try:
+
+    while True:
 
 
 
-    #GET INPUTS
+        #GET INPUTS
 
-    inputComms = []
-    #array of input device inputs taken from the array of input devices
-    #defined by length of inputDevs
+        inputComms = []
+        #array of input device inputs taken from the array of input devices
+        #defined by length of inputDevs
 
-    #get all the updates
-    for i in range(len(inputDevs)):
-        #get the report at the ask
-        inputComms.append(inputDevs[i].report())
+        #get all the updates
+        for i in range(len(inputDevs)):
+            #get the report at the ask
+            inputComms.append(inputDevs[i].report())
 
-        #cranityCheck = inputDevs[i].report()
+            #cranityCheck = inputDevs[i].report()
 
 
-#SEND TO OUTPUTS SPECIFICALLY
+    #SEND TO OUTPUTS SPECIFICALLY
 
-        #if cranityCheck:
-            #print(cranityCheck)
-    #the numpad always has something to say..
-    ####################################CHECKS AND DISTRIBUTES NUMPAD INPUT:
-    if (inputComms[0]):
-        #kind of a relic but i dont wnana touch in this itteration
+            #if cranityCheck:
+                #print(cranityCheck)
+        #the numpad always has something to say..
+        ####################################CHECKS AND DISTRIBUTES NUMPAD INPUT:
+        if (inputComms[0]):
+            #kind of a relic but i dont wnana touch in this itteration
 
-        #even no input counts as input, maybe useful
+            #even no input counts as input, maybe useful
 
-        #every face has numpad inputs so we feed it into the current face no matter what
-        switchFace = faces[currFace].numPadCommand(inputComms[0])
+            #every face has numpad inputs so we feed it into the current face no matter what
+            switchFace = faces[currFace].numPadCommand(inputComms[0])
+            
+
+
+
+            #print(switchFace)
+            #change face case
+            if not(switchFace == currFace):
+
+                print('switchFace' + str(switchFace))
+
+
+                if switchFace in range(len(faces)):
+
+                    print('switchedFace')
+
+                    currFace = switchFace
+
+                #    print('idk some error, probably out of index shithead')
+        #here you are fucker, time to die
+    #i was very mad at a bug
         
 
 
 
-        #print(switchFace)
-        #change face case
-        if not(switchFace == currFace):
+        #if the modem has something to say
+        #modem returns calls and messages
+        #return packets are shaped like [HEADER, BODY]
+        if (inputComms[1]):
+                                    #the report of the message
+            OLEDDISPLAY.displayText(inputComms[1][0],inputComms[1][1])
 
-            print('switchFace' + str(switchFace))
+            None
 
+            #if incoming call force currFace to be the call face
 
-            if switchFace in range(len(faces)):
-
-                print('switchedFace')
-
-                currFace = switchFace
-
-            #    print('idk some error, probably out of index shithead')
-    #here you are fucker, time to die
-#i was very mad at a bug
-    
+            #else curr face is 0 (default)
 
 
 
-    #if the modem has something to say
-    #modem returns calls and messages
-    #return packets are shaped like [HEADER, BODY]
-    if (inputComms[1]):
-                                #the report of the message
-        OLEDDISPLAY.displayText(inputComms[1][0],inputComms[1][1])
-
-        None
-
-        #if incoming call force currFace to be the call face
-
-        #else curr face is 0 (default)
-
-
-
-
+except Exception as e:
+    OLEDDISPLAY.displayText('ERROR',str(e))
