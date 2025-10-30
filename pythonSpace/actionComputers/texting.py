@@ -35,6 +35,8 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #so it doesnt immediarly send
         self.currPress = (None,None)
 
+        self.message = 'message'
+
         #passes you
         self.passThroughSemanticsPoralInPoorTaste = number
         #on your left
@@ -61,7 +63,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         self.setNumberCharacters()
         #this updates self.message
 
-        self.duoLingo[3][2] = lambda: self.textTo('+1' + self.message)
+        self.duoLingo[3][2] = lambda: self.textTo('+1' + str(self.message))
 
 
 
