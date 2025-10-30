@@ -141,6 +141,8 @@ OLEDDISPLAY.displayImage(cv2.imread('/home/bunkebear/meMe/Trollface.png'))
 
 try:
 
+    print('meat (ME stArT)')
+
     while True:
 
 
