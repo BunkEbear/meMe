@@ -2,6 +2,8 @@
 
 import actionComputers.godComplexActionSeperators.superClassMessageExtend
 
+from time import sleep
+
 import copy
 
 class messaging(actionComputers.godComplexActionSeperators.superClassMessageExtend.t9):
@@ -33,7 +35,10 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         self.clearMessage()
 
         #so it doesnt immediarly send
-        self.currPress = (None,None)
+        #self.currPress = (None,None)
+
+        sleep(1)
+        #crude
 
         self.message = 'message'
 
