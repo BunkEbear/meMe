@@ -29,10 +29,12 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             if take == 0:
                  self.message += charList[take]
 
+                 print('take0')
+
             else:
                 self.message = self.message[:-1]
 
-                self.take %= len(charList)
+                take %= len(charList)
 
                 #take -= 1
 
