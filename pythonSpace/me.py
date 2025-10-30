@@ -191,6 +191,8 @@ try:
 
                     currFace = switchFace
 
+                    currFace.switchedTo()
+
                 #    print('idk some error, probably out of index shithead')
         #here you are fucker, time to die
     #i was very mad at a bug
