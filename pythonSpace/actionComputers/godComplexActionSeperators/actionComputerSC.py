@@ -46,7 +46,7 @@ class numPadFace:
         self.lastReelPress = (None,None)
 
 
-
+        #numpad shape i do it this way to be nice to the user (me)
         self.duoLingo = [
             [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],
             [lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined(),lambda: self.undefined()],

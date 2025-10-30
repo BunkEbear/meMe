@@ -45,14 +45,30 @@ class oledDisp:
 
         slate = self.blankImage.copy()
 
+
+
+        bodyChunksAllOverTheFloor = splitString(body, 21)
+
+
         cv.rectangle(slate, (0, 0), (127, 10), 255, -1)
 
         # Add header text on the white rectangle (black text)
         cv.putText(slate, header, (2, 8), cv.FONT_HERSHEY_COMPLEX , 0.4, 0, 1)
         
         # Add body text below the rectangle (white text on black background)
-        cv.putText(slate, body, (2, 20), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
-        
+
+        if len(bodyChunksAllOverTheFloor) >= 1:
+        cv.putText(slate, bodyChunksAllOverTheFloor[0], (2, 20), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+
+        if len(bodyChunksAllOverTheFloor) >= 2:
+        cv.putText(slate, bodyChunksAllOverTheFloor[1], (2, 25), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+
+        if len(bodyChunksAllOverTheFloor) >= 3:
+        cv.putText(slate, bodyChunksAllOverTheFloor[2], (2, 30), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+
+        if len(bodyChunksAllOverTheFloor) >= 4:
+        cv.putText(slate, bobodyChunksAllOverTheFloordy[3], (2, 35), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+
 
         self.displayImage(slate)
 
@@ -60,9 +76,11 @@ class oledDisp:
         #call display image
     
 
+    def splitString(text, length):
+        return [text[i:i+length] for i in range(0, len(text), length)]
 
-
-    
+        
+        
 
 
 
