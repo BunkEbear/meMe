@@ -105,6 +105,16 @@ class numPadFace:
             #print(numPcoords)
         
 
+            #weirld refrence stuff bc its using lists not tuples
+            #lmao fuck you i changed it
+            if self.currPress == self.lastReelPress:
+                print(self.take)
+                self.take += 1
+                #take increaser momdner
+
+            self.lastReelPress = self.currPress
+
+
         #print(numPcoords)
         
     
@@ -113,14 +123,7 @@ class numPadFace:
 
             print(padToAction)
 
-            #weirld refrence stuff bc its using lists not tuples
-
-            if self.currPress == self.lastReelPress:
-                print(self.take)
-                self.take += 1
-                #take increaser momdner
-
-            self.lastReelPress = self.currPress
+            
 
             return(padToAction)
             
