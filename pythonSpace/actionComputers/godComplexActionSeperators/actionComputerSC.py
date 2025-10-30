@@ -114,7 +114,7 @@ class numPadFace:
                 print(self.take)
                 #self.take += 1
                 #take increaser momdner
-            else:
+            #else:
                 #self.take += 1
 
 
