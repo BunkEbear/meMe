@@ -213,6 +213,8 @@ class controlMusic(actionComputers.godComplexActionSeperators.actionComputerSC.n
         #self.setPlaylist(self.playlists[self.playlistIndex])
 
 
+        self.functionality = 'MUSIC CONTROL'
+
 
 
 

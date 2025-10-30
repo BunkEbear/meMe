@@ -63,6 +63,8 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
 
         def __init__(self,binDispObj,spiDisplay):
 
+            
+
             super().__init__(binDispObj,spiDisplay)
 
             self.passThroughSemanticsPoralInPoorTaste = ""
@@ -73,6 +75,8 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             #increment take for same button press over and over
             
             self.backDuoLingo = copy.deepcopy(self.duoLingo)
+
+            self.functionality += ' and typing'
 
 
         #
@@ -106,3 +110,31 @@ class t9(actionComputers.godComplexActionSeperators.actionComputerSC.numPadFace)
             self.duoLingo[3][1] = lambda: self.addCharacter(self.take, [' '])
             #self.duoLingo[3][2] = None #send function like finition (finish message function) # set this in texting as like a send
             #self.duoLingo[3][3] = None
+
+
+
+        def setNumberCharacters(self):
+
+            self.duoLingo[0][0] = lambda: self.addCharacter(self.take, ['1'])
+            self.duoLingo[0][1] = lambda: self.addCharacter(self.take, ['2'])
+            self.duoLingo[0][2] = lambda: self.addCharacter(self.take, ['3'])
+            #self.duoLingo[0][3] = None
+
+                                                            #holy runtime
+            self.duoLingo[1][0] = lambda: self.addCharacter(self.take, ['4'])
+            self.duoLingo[1][1] = lambda: self.addCharacter(self.take, ['5'])
+            self.duoLingo[1][2] = lambda: self.addCharacter(self.take, ['6'])
+            #self.duoLingo[1][3] = None
+
+
+            self.duoLingo[2][0] = lambda: self.addCharacter(self.take, ['7'])
+            self.duoLingo[2][1] = lambda: self.addCharacter(self.take, ['8'])
+            self.duoLingo[2][2] = lambda: self.addCharacter(self.take, ['9'])
+            #self.duoLingo[2][3] = None
+
+
+            self.duoLingo[3][0] = lambda: self.dele() #backspace function, if there is no text left it returns
+            self.duoLingo[3][1] = lambda: self.addCharacter(self.take, ['0'])
+            #self.duoLingo[3][2] = None #send function like finition (finish message function) # set this in texting as like a send
+            #self.duoLingo[3][3] = None
+

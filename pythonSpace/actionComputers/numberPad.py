@@ -124,3 +124,5 @@ class numberPadNumbers(numPadFace):
         #the number is returned to here
         #self.duoLingo[3][3] = None
 
+
+        self.functionality = 'NUMBER PAD'

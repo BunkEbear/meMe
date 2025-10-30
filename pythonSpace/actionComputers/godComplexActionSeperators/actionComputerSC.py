@@ -5,6 +5,9 @@ from time import sleep
 
 class numPadFace:
 
+    def switchedTo(self):
+        print('switchedTo ' + self.functionality)
+
     def undefined(self):
         print("button not yet defined")
 
@@ -32,6 +35,8 @@ class numPadFace:
 
 
     def __init__(self, displayObject, spiDisplay):
+
+        self.functionality = 'NOTHING'
 
         self.faceIndex = None
 

@@ -9,7 +9,6 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
     def reply(self):
         None
 
-        self.clearMessage()
         #open a chat with the message details
 
         messagetoreply = self.modemDbus.getMessage(self.scrollingMessageIndex)
@@ -22,10 +21,53 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
   #          None
 #dw bby modem manager has u now
 
-        self.passThroughSemanticsPoralInPoorTaste = messagetoreply.number
+        self.textTo(str(messagetoreply.number))
+        #string acceptor
+        #me when i abstcrstion oblejct something something idc anymore im gonna refector anyways
 
-        self.setNormalCharacters() #normal as in normal typing
-        self.duoLingo[3][2] = lambda: self.sendMessage(messagetoreply.number, self.message)
+
+
+    def textTo(self,number):
+        None
+
+        self.clearMessage()
+
+        #passes you
+        self.passThroughSemanticsPoralInPoorTaste = number
+        #on your left
+
+        #passes this into the updating screen thing in texting
+
+        self.setNumberCharacters() #normal as in normal typing
+
+        self.duoLingo[3][2] = lambda: self.sendMessage(number, self.message)
+
+
+
+
+
+    def numberTextTo(self):
+
+        
+        self.clearMessage()
+        #even if it resets the controls, we set it anyways
+        #things have been set in motion which cannot be undone
+        #i got motion
+
+        self.passThroughSemanticsPoralInPoorTaste = 'enter number:'
+        self.setNormalCharacters()
+        #this updates self.message
+
+        self.duoLingo[3][2] = lambda: self.textTo('+1' + self.message)
+
+
+
+        
+
+
+
+
+
 
 
 
@@ -95,7 +137,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         self.scrollingMessageIndex = 0
 
 
-        #self.duoLingo[0][0] = lambda: self.addCharacter(self.take, [',','?','!'])
+        self.duoLingo[0][0] = lambda: self.numberTextTo()
         self.duoLingo[0][1] = lambda: self.nextPrevMessage(True)
         #self.duoLingo[0][2] = lambda: self.addCharacter(self.take, ['d','e','f'])
         #self.duoLingo[0][3] = None
@@ -126,6 +168,8 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #absoulte sure
 
         self.backDuoLingo = copy.deepcopy(self.duoLingo)
+
+        self.functionality = 'TEXTING'
 
 
 
