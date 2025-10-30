@@ -105,11 +105,13 @@ class numPadFace:
             #print(numPcoords)
         
 
+            self.take += 1
+
             #weirld refrence stuff bc its using lists not tuples
             #lmao fuck you i changed it
             if self.currPress == self.lastReelPress:
                 print(self.take)
-                self.take += 1
+                #self.take += 1
                 #take increaser momdner
             else:
                 self.take = 0
