@@ -67,13 +67,13 @@ class oledDisp:
             cv.putText(slate, bodyChunksAllOverTheFloor[2], (2, 34), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
 
         if len(bodyChunksAllOverTheFloor) >= 4:
-            cv.putText(slate, bobodyChunksAllOverTheFloor[3], (2, 41), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+            cv.putText(slate, bodyChunksAllOverTheFloor[3], (2, 41), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
         
         if len(bodyChunksAllOverTheFloor) >= 5:
-            cv.putText(slate, bobodyChunksAllOverTheFloor[4], (2, 48), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+            cv.putText(slate, bodyChunksAllOverTheFloor[4], (2, 48), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
 
         if len(bodyChunksAllOverTheFloor) >= 6:
-            cv.putText(slate, bobodyChunksAllOverTheFloor[5], (2, 55), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
+            cv.putText(slate, bodyChunksAllOverTheFloor[5], (2, 55), cv.FONT_HERSHEY_PLAIN, 0.6, 255, 1)
 
 
 
