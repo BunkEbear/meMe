@@ -40,7 +40,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         sleep(1)
         #crude
 
-        self.message = 'message'
+        #self.message = 'message'
 
         #passes you
         self.passThroughSemanticsPoralInPoorTaste = number
