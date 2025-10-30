@@ -191,7 +191,7 @@ try:
 
                     currFace = switchFace
 
-                    currFace.switchedTo()
+                    faces[currFace].switchedTo()
 
                 #    print('idk some error, probably out of index shithead')
         #here you are fucker, time to die
