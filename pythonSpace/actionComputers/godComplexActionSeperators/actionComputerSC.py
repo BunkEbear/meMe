@@ -64,6 +64,8 @@ class numPadFace:
 
         self.lastBtnPress = (None,None)
 
+        self.currPress = (None,None)
+
 
 
 
@@ -76,11 +78,12 @@ class numPadFace:
     #here is where the numpad coords arive
     def numPadCommand(self,numPcoords):
 
+        self.currPress = numPcoords
 
         padToAction = None
         #print(numPcoords)
 
-        if numPcoords == self.lastBtnPress:
+        if self.currPress == self.lastBtnPress:
             #print('PISSSSSSS')
             
 
@@ -89,16 +92,16 @@ class numPadFace:
 
 
         else:
-            if numPcoords == (None, None):
-                self.lastBtnPress = numPcoords
+            if self.currPress == (None, None):
+                self.lastBtnPress = self.currPress
                 return self.faceIndex
             
 
             #here is where it meets the duolingo tensor
-            padToAction = self.duoLingo[numPcoords[1]][numPcoords[0]]()
+            padToAction = self.duoLingo[self.currPress[1]][self.currPress[0]]()
 
             #print('numPadToAction')
-            self.lastBtnPress = numPcoords
+            self.lastBtnPress = self.currPress
             #print(numPcoords)
         
 
@@ -106,18 +109,18 @@ class numPadFace:
         
     
         if not(padToAction == None):
-            self.lastBtnPress = numPcoords
+            self.lastBtnPress = self.currPress
 
             print(padToAction)
 
             #weirld refrence stuff bc its using lists not tuples
 
-            if numPcoords == self.lastReelPress:
+            if self.currPress == self.lastReelPress:
                 print(self.take)
                 self.take += 1
                 #take increaser momdner
 
-            self.lastReelPress = numPcoords
+            self.lastReelPress = self.currPress
 
             return(padToAction)
             

@@ -32,6 +32,9 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.clearMessage()
 
+        #so it doesnt immediarly send
+        self.currPress = (None,None)
+
         #passes you
         self.passThroughSemanticsPoralInPoorTaste = number
         #on your left
