@@ -47,7 +47,7 @@ class oledDisp:
 
 
 
-        bodyChunksAllOverTheFloor = splitString(body, 21)
+        bodyChunksAllOverTheFloor = self.splitString(body, 21)
 
 
         cv.rectangle(slate, (0, 0), (127, 10), 255, -1)
