@@ -71,8 +71,8 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.oledDisplay.displayText(message.number, message.text)
 
-
-    def sendMessage(self,messageString, numberTo):
+                    #holy fucking shit
+    def sendMessage(self,numberTo, messageString):
 
 
         self.modemDbus.makeSend(numberTo, messageString)
