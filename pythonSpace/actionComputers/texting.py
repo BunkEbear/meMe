@@ -76,13 +76,30 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.passThroughSemanticsPoralInPoorTaste = 'enter number:'
 
+
+
         self.oledDisplay.displayText(self.passThroughSemanticsPoralInPoorTaste, self.message)
+
+
+
 
 
         self.setNumberCharacters()
         #this updates self.message
 
         self.duoLingo[3][2] = lambda: self.textTo('+1' + str(self.message))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,6 +121,12 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         #messageDpath = self.modemDbus.messages[self.scrollingMessageIndex]
         
         message = self.modemDbus.getMessage(self.scrollingMessageIndex)
+
+
+        #quickfix for long messages:
+
+
+
 
         self.oledDisplay.displayText(message.number, message.text)
         
@@ -156,6 +179,32 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
 
 
+
+    def scroll(self, direction):
+
+        messageObj = self.modemDbus.getMessage(self.scrollingMessageIndex)
+        
+        splitString = self.oledDisplay.splitString(messageObj.text)
+
+        rotateSplitString = splitString
+
+        if direction:
+            rotateSplitString = splitString[1:] + splitString[1]
+
+        else:
+            rotateSplitString = splitString[-1] + splitString[:-1]
+
+        rotatedText = ''.join(rotateSplitString)
+
+        self.oledDisplay.displayText(messageObj.number, rotatedText)
+
+
+
+
+
+
+
+
     def __init__(self,binDispObj,modemDbusPorts,spiDisplay):
 
         super().__init__(binDispObj,spiDisplay)
@@ -167,7 +216,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.duoLingo[0][0] = lambda: self.numberTextTo()
         self.duoLingo[0][1] = lambda: self.nextPrevMessage(True)
-        #self.duoLingo[0][2] = lambda: self.addCharacter(self.take, ['d','e','f'])
+        self.duoLingo[0][2] = lambda: self.scroll(False)
         #self.duoLingo[0][3] = None
 
 
@@ -189,7 +238,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         self.duoLingo[3][0] = lambda: self.backToNumPad()
         #self.duoLingo[3][1] = lambda: self.addCharacter(self.take, [' '])
-        #self.duoLingo[3][2] = None
+        self.duoLingo[3][2] = lambda: self.scroll(True) #true is meaning of the scroll down like scroll normal which is why true this is my tedathon talk
         #self.duoLingo[3][3] = None
 
 

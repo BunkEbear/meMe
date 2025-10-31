@@ -46,7 +46,6 @@ class oledDisp:
         slate = self.blankImage.copy()
 
 
-
         bodyChunksAllOverTheFloor = self.splitString(body, 21)
 
 
