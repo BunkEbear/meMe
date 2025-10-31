@@ -188,15 +188,17 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         messageObj = self.modemDbus.getMessage(self.scrollingMessageIndex)
         
-        splitString = self.oledDisplay.splitString(messageObj.text)
+        splitString = self.oledDisplay.splitString(messageObj.text)#splits it fro the screen vro
 
         rotateSplitString = splitString
 
         if direction:
-            rotateSplitString = splitString[1:].append(splitString[1])
+            rotateSplitString = splitString[1:]
+            rotateSplitString.append(splitString[1])
 
         else:
-            rotateSplitString = splitString[-1].append(splitString[:-1])
+            rotateSplitString = splitString[-1]
+            rotateSplitString.append(splitString[:-1])
 
         rotatedText = ''.join(rotateSplitString)
 
