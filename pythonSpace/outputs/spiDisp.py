@@ -46,7 +46,7 @@ class oledDisp:
         slate = self.blankImage.copy()
 
 
-        bodyChunksAllOverTheFloor = self.splitString(body, 21)
+        bodyChunksAllOverTheFloor = self.splitString(body)
 
 
         cv.rectangle(slate, (0, 0), (127, 10), 255, -1)
@@ -85,8 +85,8 @@ class oledDisp:
         #call display image
     
 
-    def splitString(self, text, length):
-        return [text[i:i+length] for i in range(0, len(text), length)]
+    def splitString(self, text):
+        return [text[i:i+self.lineLength] for i in range(0, len(text), self.lineLength)]
 
         
         
@@ -100,6 +100,8 @@ class oledDisp:
 
 
     def __init__(self):
+
+        self.lineLength = 21
 
         self.blankImage = np.zeros((64,128), np.uint8)
 
