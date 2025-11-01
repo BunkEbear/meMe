@@ -193,12 +193,10 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         rotateSplitString = splitString
 
         if direction:
-            rotateSplitString = splitString[1:]
-            rotateSplitString.append(splitString[1])
+            rotateSplitString = splitString[1:] + splitString[:1]
 
         else:
-            rotateSplitString = splitString[-1:]
-            rotateSplitString.append(splitString[:-1])
+            rotateSplitString = splitString[-1:] + splitString[:-1]
 
         rotatedText = ''.join(rotateSplitString)
 
