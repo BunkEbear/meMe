@@ -142,6 +142,8 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
     def nextPrevMessage(self,b):
 
+        self.messageScrollLevel = 0
+
         if b:
             self.scrollingMessageIndex += 1
         
@@ -193,10 +195,13 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
         rotateSplitString = splitString
 
         if direction:
-            rotateSplitString = splitString[1:] + splitString[:1]
+            self.messageScrollLevel += 1
 
         else:
-            rotateSplitString = splitString[-1:] + splitString[:-1]
+            self.messageScrollLevel -= 1
+
+        rotateSplitString = splitString[self.messageScrollLevel:] + splitString[:self.messageScrollLevel]
+
 
         rotatedText = ''.join(rotateSplitString)
 
@@ -214,6 +219,10 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
     def __init__(self,binDispObj,modemDbusPorts,spiDisplay):
 
         super().__init__(binDispObj,spiDisplay)
+
+        
+        self.messageScrollLevel = 0
+
 
         self.modemDbus = modemDbusPorts
 
