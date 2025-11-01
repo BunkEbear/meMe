@@ -247,13 +247,13 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         #self.duoLingo[2][0] = lambda: self.addCharacter(self.take, ['p','q','r','s'])
         self.duoLingo[2][1] = lambda: self.nextPrevMessage(False)
-        #self.duoLingo[2][2] = lambda: self.addCharacter(self.take, ['w','x','y','z'])
+        self.duoLingo[3][2] = lambda: self.scroll(True) #true is meaning of the scroll down like scroll normal which is why true this is my tedathon talk
         #self.duoLingo[2][3] = None
 
 
         self.duoLingo[3][0] = lambda: self.backToNumPad()
         #self.duoLingo[3][1] = lambda: self.addCharacter(self.take, [' '])
-        self.duoLingo[3][2] = lambda: self.scroll(True) #true is meaning of the scroll down like scroll normal which is why true this is my tedathon talk
+#        self.duoLingo[3][2] = lambda: self.scroll(True) #true is meaning of the scroll down like scroll normal which is why true this is my tedathon talk
         #self.duoLingo[3][3] = None
 
 
