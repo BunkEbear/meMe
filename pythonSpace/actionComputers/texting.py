@@ -205,7 +205,7 @@ class messaging(actionComputers.godComplexActionSeperators.superClassMessageExte
 
         rotatedText = ''.join(rotateSplitString)
 
-        splitString = rotateSplitString
+        #splitString = rotateSplitString
 
         self.oledDisplay.displayText(messageObj.number, rotatedText)
 
