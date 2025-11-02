@@ -133,6 +133,27 @@ class sms(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Sms
         raise NotImplementedError
 
 
+class voice(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Modem.Voice'):
+
+    @dbus_method('', 'ao')
+    def ListCalls(self) -> list:
+        """List all active call object paths - if not empty, there are calls"""
+        raise NotImplementedError
+
+
+class call(DbusInterfaceCommon, interface_name='org.freedesktop.ModemManager1.Call'):
+
+    @dbus_property('u', property_name='State')
+    def state(self) -> int:
+        """Get call state - 3 = ringing-in, 4 = ringing-out"""
+        raise NotImplementedError
+
+    @dbus_property('s', property_name='Number')
+    def number(self) -> str:
+        """Get the phone number of the call"""
+        raise NotImplementedError
+
+
 
 
 class currentModemCtrl(inputSuperclass):
@@ -167,6 +188,18 @@ class currentModemCtrl(inputSuperclass):
 
         #oldMessages = self.messages
 
+        # Check for incoming calls first
+        try:
+            active_calls = self.voicePort.ListCalls()
+            #list all call paths
+            if active_calls:
+                most_recent_call = active_calls[0] # 0 is first like messaging intead of highest number being last
+                call_obj = call(service_name='org.freedesktop.ModemManager1', object_path=most_recent_call)
+                if call_obj.state == 3:  # 3 = MM_CALL_STATE_RINGING_IN
+                    print(call_obj.number)
+                    return ["CALL", call_obj.number]
+        except Exception as e:
+            print(f"Error checking calls: {e}")
         
 
         #to do with the topic of message updates:
@@ -251,6 +284,8 @@ class currentModemCtrl(inputSuperclass):
 
 
         self.messagingPort = messaging(service_name='org.freedesktop.ModemManager1', object_path=self.modemDbusPath)
+
+        self.voicePort = voice(service_name='org.freedesktop.ModemManager1', object_path=self.modemDbusPath)
 
         #selected Message
         self.smsPort = None
