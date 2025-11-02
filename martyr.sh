@@ -50,9 +50,9 @@ while true; do
 	sudo -E /home/bunkebear/meMe/pyspective/bin/python3 /home/bunkebear/meMe/pythonSpace/me.py
 #
 #
-	git stash
+	#git stash
 #fuck you
-	git pull
+	#git pull
 #
 done
 
